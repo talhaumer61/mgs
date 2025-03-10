@@ -1,0 +1,16 @@
+{
+    "name": "mg/src",
+    "authors": [{
+        "name": "Hamad Basharat",
+        "email": "hamad.basharat80@gmail.com"
+    }],
+    "require": {
+        "illuminate/database": "v6.18.43"
+    },
+    "autoload": {
+        "classmap": [
+            "./src/models",
+            "./src/libs"
+        ]
+    }
+}

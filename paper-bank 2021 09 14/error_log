@@ -1,0 +1,89 @@
+[16-Jul-2021 04:49:44 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 04:49:44 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 04:49:44 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 04:49:44 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 04:49:44 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 04:49:44 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 04:49:44 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:14 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:42:28 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[16-Jul-2021 08:45:35 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Papers::get_max_marks(), 1 passed in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Controller.php on line 41 and exactly 2 expected in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php:27
+Stack trace:
+#0 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Controller.php(41): Papers->get_max_marks('1')
+#1 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Core.php(41): Controller->dispatcher('get_max_marks', Array)
+#2 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/index.php(9): Core->__construct(true)
+#3 {main}
+  thrown in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php on line 27
+[16-Jul-2021 09:36:29 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Papers::get_max_marks(), 1 passed in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Controller.php on line 41 and exactly 2 expected in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php:27
+Stack trace:
+#0 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Controller.php(41): Papers->get_max_marks('2')
+#1 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Core.php(41): Controller->dispatcher('get_max_marks', Array)
+#2 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/index.php(9): Core->__construct(true)
+#3 {main}
+  thrown in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php on line 27
+[16-Jul-2021 10:14:20 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Papers::get_max_marks(), 1 passed in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Controller.php on line 41 and exactly 2 expected in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php:27
+Stack trace:
+#0 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Controller.php(41): Papers->get_max_marks('5')
+#1 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Core.php(41): Controller->dispatcher('get_max_marks', Array)
+#2 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/index.php(9): Core->__construct(true)
+#3 {main}
+  thrown in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php on line 27
+[28-Jul-2021 04:44:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function toJson() on null in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php:31
+Stack trace:
+#0 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Controller.php(41): Papers->get_max_marks('2', '2')
+#1 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Core.php(41): Controller->dispatcher('get_max_marks', Array)
+#2 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/index.php(9): Core->__construct(true)
+#3 {main}
+  thrown in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php on line 31
+[28-Jul-2021 04:44:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function toJson() on null in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php:31
+Stack trace:
+#0 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Controller.php(41): Papers->get_max_marks('2', '3')
+#1 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/libs/Core.php(41): Controller->dispatcher('get_max_marks', Array)
+#2 /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/index.php(9): Core->__construct(true)
+#3 {main}
+  thrown in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/controllers/PapersController.php on line 31
+[28-Jul-2021 06:51:35 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 06:51:35 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 06:51:35 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 06:51:35 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 06:51:35 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 06:51:35 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 06:51:35 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:49:50 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print_subjective.php on line 82
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98
+[28-Jul-2021 07:50:10 UTC] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/neotericschools/public_html/mgs.gptech.pk/paper-bank/src/views/papers/print-template2.php on line 98

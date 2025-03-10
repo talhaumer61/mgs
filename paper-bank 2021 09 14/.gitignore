@@ -1,0 +1,7 @@
+/.vscode
+vendor
+./test.asm
+./test.php
+/node_modules
+/.cache
+/.idea

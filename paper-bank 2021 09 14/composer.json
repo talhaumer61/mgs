@@ -1,0 +1,18 @@
+{
+    "name": "mg/src",
+    "authors": [
+        {
+            "name": "muneeb71999",
+            "email": "muneebakram71999@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "v6.18.43"
+    },
+    "autoload": {
+        "classmap": [
+            "./src/models",
+            "./src/libs"
+        ]
+    }
+}

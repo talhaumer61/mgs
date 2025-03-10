@@ -1,0 +1,11 @@
+/.vscode
+vendor
+./test.asm
+./test.php
+./config.php
+/node_modules
+/.cache
+/.idea
+config.php
+.htaccess
+src/.htaccess
