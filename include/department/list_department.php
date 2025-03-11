@@ -50,14 +50,14 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('10', $_SESSION['
 				<tbody>';
 					$sqllms	= $dblms->querylms("SELECT dep.dept_id, dep.dept_name, dep.dept_code, dep.dept_status  
 													FROM ".DEPARTMENTS." dep 
-													WHERE dep.id_campus IN (".$id_campus.")
+													WHERE dep.id_campus IN (".$id_campus.") AND is_deleted = 0
 													ORDER BY dep.dept_name ASC");
 					$srno = 0;
 					while($rowsvalues = mysqli_fetch_array($sqllms)) {
 						$srno++;
 						echo'
 						<tr>
-							<td class="center">'.$srno.'</td>
+							<td class="center">'.$rowsvalues['dept_id'].'</td>
 							<td>'.$rowsvalues['dept_name'].'</td>
 							<td>'.$rowsvalues['dept_code'].'</td>
 							<td class="center">'.get_status($rowsvalues['dept_status']).'</td>
