@@ -10,7 +10,7 @@ echo '
 <div class="row">
 <div class="col-md-12">';
 require_once("complaints_suggestions/query_complaint.php");
-include_once("include/modals\complaint_suggestion\add.php");
+include_once("include/modals/complaint_suggestion/add.php");
 	echo'
 	<style>
 	.card{
@@ -34,12 +34,8 @@ include_once("include/modals\complaint_suggestion\add.php");
 						'select'       => 'title, detail, status',
 						'where'        => array( 
 													 'is_deleted' => '0'
-													,'status' => '1'
 													,'id_complaint_by' => $_SESSION['userlogininfo']['LOGINIDA']
 												)
-						// ,'where_in'     => array( 
-						// 							'e.id_campus' => array(0, $_SESSION['userlogininfo']['LOGINCAMPUS']) 
-						// 						)
 						,'return_type'  => 'all'
 								);  
 	$complaints = $dblms->getRows(COMPLAINTS, $condition);
@@ -56,7 +52,7 @@ echo '
 		<th style="text-align:center;">#</th>
 		<th>Title </th>
 		<th>Detail</th>
-		<th>Satus</th>
+		<th>Status</th>
 	</tr>
 </thead>
 <tbody>';

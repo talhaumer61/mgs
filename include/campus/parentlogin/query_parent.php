@@ -3,7 +3,7 @@
 if(isset($_POST['submit_parent'])){
 	$sqllmscheck  = $dblms->querylms("SELECT adm_username 
 										FROM ".ADMINS." 
-										WHERE adm_username = '".cleanvars($_POST['adm_username'])."' LIMIT 1");
+										WHERE adm_username = '".cleanvars($_POST['adm_username'])." AND is_deleted = 0 ' LIMIT 1");
 	if(mysqli_num_rows($sqllmscheck)) {
 		$_SESSION['msg']['title'] 	= 'Error';
 		$_SESSION['msg']['text'] 	= 'Record Already Exists';
@@ -86,7 +86,7 @@ if(isset($_POST['submit_parent'])){
 if(isset($_POST['changes_parent'])){
 	$sqllmscheck  = $dblms->querylms("SELECT adm_username 
 										FROM ".ADMINS." 
-										WHERE adm_username = '".cleanvars($_POST['adm_username'])."'
+										WHERE adm_username = '".cleanvars($_POST['adm_username'])." AND is_deleted = 0 '
 										AND adm_id		  != '".cleanvars($_POST['adm_id'])."' LIMIT 1");
 	if(mysqli_num_rows($sqllmscheck)) {
 		$_SESSION['msg']['title'] 	= 'Error';

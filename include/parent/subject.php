@@ -59,9 +59,11 @@ echo '
             <tr>
                 <td class="text-md '.$online_classes.'"><i class="fa fa-dot-circle-o"></i><a href="subject.php?std='.$_GET['std'].'&id='.$value_detail['subject_id'].'&section='.$values_std['id_section'].'&class='.$values_std['id_class'].'&view=online_classes"> Online Classes</a></td>
             </tr>
+            <!--
             <tr>
                 <td class="text-md '.$attendance.'"><i class="fa fa-dot-circle-o"></i><a href="subject.php?std='.$_GET['std'].'&id='.$value_detail['subject_id'].'&section='.$values_std['id_section'].'&class='.$values_std['id_class'].'&view=attendance"> Attendance</a></td>
             </tr>
+            -->
             <tr>
                 <td class="text-md '.$assignment.'"><i class="fa fa-dot-circle-o"></i><a href="subject.php?std='.$_GET['std'].'&id='.$value_detail['subject_id'].'&section='.$values_std['id_section'].'&class='.$values_std['id_class'].'&view=assignment"> Assignment</a></td>
             </tr>
