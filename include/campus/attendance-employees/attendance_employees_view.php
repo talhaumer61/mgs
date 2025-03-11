@@ -59,7 +59,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('55', $_SESSION['
 												FROM ".EMPLOYEES." e
 												INNER JOIN ".DESIGNATIONS." d ON d.designation_id = e.id_designation
 												WHERE e.id_campus = '".$_SESSION['userlogininfo']['LOGINCAMPUS']."'  
-												AND e.emply_status = '1'
+												AND e.emply_status = '1' AND e.is_deleted = '0'
 											");
 					if(mysqli_num_rows($sqllms) > 0){
 						echo'
