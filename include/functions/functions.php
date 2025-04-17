@@ -445,7 +445,7 @@ function get_attendtype($id) {
 	$attendcetype = array (
 							'1'	=> '<span class="label label-success">P</span>', 
 							'2'	=> '<span class="label label-danger">A</span>', 
-							'3'	=> '<span class="label label-primary">LV</span>', 
+							'3'	=> '<span class="label label-primary">HD</span>', 
 							'4'	=> '<span class="label label-warning">LT</span>'
 							);
 	return $attendcetype[$id];

@@ -86,11 +86,18 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('9', $_SESSION['u
 					<header class="panel-heading">
 						<h2 class="panel-title"><i class="fa fa-clock-o"></i> ';
 						echo'
-						Daily Class Routiene of <b>'.$teacher_name.'</b></h2>
+						Daily Class Routiene of <b>'.$teacher_name.'</b>
+						<button onclick="print_report(\'printResultTeacher\')" class="mr-xs btn-xs pull-right btn btn-primary"><i class="glyphicon glyphicon-print"></i> Print</button>
+						</h2>
 					</header>
 					
-					<div class="panel-body">
-						<div class="table-responsive mt-sm mb-md">
+					<div class="panel-body" id="printResultTeacher">
+						<header class="panel-heading" id="header" style="display:none;">
+							<h2 class="panel-title"><i class="fa fa-clock-o"></i> ';
+							echo'
+							Daily Class Routiene of <b>'.$teacher_name.'</b></h2>
+						</header>
+						<div class="table-responsive mt-sm mb-md" >
 							<table class="table table-bordered table-striped table-condensed  mb-none" id="my_table">
 								<tbody>	
 									<tr>
@@ -194,3 +201,32 @@ else{
 	header("location: dashboard.php");
 }
 ?>
+<script>
+	function print_report(printResult) {
+		document.getElementById('header').style.display = 'block';
+		var printContents = document.getElementById(printResult).innerHTML;
+		var originalContents = document.body.innerHTML;
+		document.body.innerHTML = printContents;
+		var css = `@media print {
+									@page {
+										size: landscape;
+										margin: 0;
+									}
+	
+								}
+				`,
+		head = document.head || document.getElementsByTagName('head')[0],
+		style = document.createElement('style');
+		style.type = 'text/css';
+		style.media = 'print';
+		if (style.styleSheet){
+		style.styleSheet.cssText = css;
+		} else {
+		style.appendChild(document.createTextNode(css));
+		}
+		head.appendChild(style);
+		window.print();
+		document.body.innerHTML = originalContents;
+		document.getElementById('header').style.display = 'none';
+	}
+</script>

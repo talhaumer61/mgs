@@ -1,8 +1,12 @@
 <?php 
 	// Current Session
-	$sqllmsSession	= $dblms->querylms("SELECT session_name
-									FROM ".SESSIONS."
-									WHERE session_id = '".$_SESSION['userlogininfo']['ACADEMICSESSION']."' LIMIT 1");
+	$sqllmsSession	= $dblms->querylms("SELECT s.session_name
+										FROM ".SETTINGS." AS st
+										JOIN ".SESSIONS." AS s ON s.session_id = st.acd_session
+										WHERE st.id_campus = '".cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS'])."'
+										AND st.status = '1'
+										AND st.is_deleted = '0'
+										LIMIT 1");
 	$valSession = mysqli_fetch_array($sqllmsSession);
 
 	$data = array(

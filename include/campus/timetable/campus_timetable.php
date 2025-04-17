@@ -71,12 +71,19 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('9', $_SESSION['u
 					</div>
 					-->
 					<div class="col-md-2">
-						<div class="form-group">
-							<button id="filter_Challan" class="mr-xs btn btn-primary"><i class="fa fa-search"></i></button>
+						<div class="form-group d-flex justify-content-between">';
+							// echo'<button id="filter_Challan" class="mr-xs btn btn-primary"><i class="fa fa-search"></i></button>';
+							echo'
+							<button onclick="print_report(\'printResultCampus\')" class="mr-xs btn-xs btn btn-primary"><i class="glyphicon glyphicon-print"></i> Print</button>
 						</div>
 					</div>
 				</div>
-				<div class="table-responsive mt-sm mb-md">
+				<div class="table-responsive mt-sm mb-md" id="printResultCampus">
+					<header class="panel-heading" id="header" style="display:none;">
+						<h2 class="panel-title"><i class="fa fa-clock-o"></i> ';
+						echo'
+						Timetable of <b>'.$_SESSION['userlogininfo']['PERMISSIONSLOGINCAMPUSNAME'].'</b></h2>
+					</header>
 					<table class="table table-bordered table-striped table-condensed mb-none" id="my_table my_table2">
 						<tbody>	
 							<tr>
@@ -163,3 +170,32 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('9', $_SESSION['u
 	header("location: dashboard.php");
 }
 ?>
+<script>
+	function print_report(printResult) {
+		document.getElementById('header').style.display = 'block';
+		var printContents = document.getElementById(printResult).innerHTML;
+		var originalContents = document.body.innerHTML;
+		document.body.innerHTML = printContents;
+		var css = `@media print {
+									@page {
+										size: landscape;
+										margin: 0;
+									}
+	
+								}
+				`,
+		head = document.head || document.getElementsByTagName('head')[0],
+		style = document.createElement('style');
+		style.type = 'text/css';
+		style.media = 'print';
+		if (style.styleSheet){
+		style.styleSheet.cssText = css;
+		} else {
+		style.appendChild(document.createTextNode(css));
+		}
+		head.appendChild(style);
+		window.print();
+		document.body.innerHTML = originalContents;
+		document.getElementById('header').style.display = 'none';
+	}
+</script>
