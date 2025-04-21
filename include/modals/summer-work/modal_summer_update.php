@@ -61,9 +61,9 @@ echo '
 			<div class="form-group">
 				<label class="col-md-3 control-label">Class <span class="required">*</span></label>
 				<div class="col-md-9">
-					<select class="form-control" required title="Must Be Required" data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" id="id_class" name="id_class">
+					<select class="form-control" required title="Must Be Required" data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" id="id_class" name="id_class" onchange="get_classsubject(this.value)">
 						<option value="">Select</option>';
-							$sqllmscls	= $dblms->querylms("SELECT class_id, class_name 
+							$sqllmscls	= $dblms->querylms("SELECT class_id, class_status, class_name 
 													FROM ".CLASSES."
 													WHERE class_status = '1'
 													ORDER BY class_id ASC");
@@ -77,6 +77,28 @@ echo '
 					echo '
 					</select>
 				</div>
+			</div>
+			<div id="getclasssubject">
+			<div class="form-group  mb-md">
+				<label class="col-md-3 control-label">Subject <span class="required">*</span></label>
+				<div class="col-md-9">
+					<select class="form-control" required title="Must Be Required" data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" name="id_subject">
+						<option value="">Select</option>';
+							$sqllmscls	= $dblms->querylms("SELECT subject_id, subject_code, subject_name 
+													FROM ".CLASS_SUBJECTS."
+													WHERE subject_status = '1' AND id_class = '".$rowsvalues['id_class']."'
+													ORDER BY subject_name ASC");
+							while($valuecls = mysqli_fetch_array($sqllmscls)) {
+								if($valuecls['subject_id'] == $rowsvalues['id_subject']) { 
+									echo '<option value="'.$valuecls['subject_id'].'" selected>'.$valuecls['subject_code'].' - '.$valuecls['subject_name'].'</option>';
+								} else {
+									echo '<option value="'.$valuecls['subject_id'].'">'.$valuecls['subject_code'].' - '.$valuecls['subject_name'].'</option>';
+								}	
+							}
+					echo '
+					</select>
+				</div>
+			</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-3 control-label">Type <span class="required">*</span></label>

@@ -19,6 +19,7 @@ if(isset($_POST['submit_summer_work'])){
 														, id_type 
 														, id_month  
 														, id_class 
+														, id_subject 
 														, note
 														, id_session
 														, id_added 
@@ -29,6 +30,7 @@ if(isset($_POST['submit_summer_work'])){
 														, '".cleanvars($_POST['id_type'])."'
 														, '".cleanvars($_POST['id_month'])."'
 														, '".cleanvars($_POST['id_class'])."'
+														, '".cleanvars($_POST['id_subject'])."'
 														, '".cleanvars($_POST['note'])."'
 														, '".cleanvars($_POST['id_session'])."'
 														, '".cleanvars($_SESSION['userlogininfo']['LOGINIDA'])."'
@@ -122,6 +124,7 @@ if(isset($_POST['changes_summer_work'])){
 														, id_type			= '".cleanvars($_POST['id_type'])."' 
 														, id_month			= '".cleanvars($_POST['id_month'])."' 
 														, id_class			= '".cleanvars($_POST['id_class'])."'  
+														, id_subject			= '".cleanvars($_POST['id_subject'])."'  
 														, note				= '".cleanvars($_POST['note'])."' 
 														, id_session		= '".cleanvars($_POST['id_session'])."' 
 														, id_modify			= '".cleanvars($_SESSION['userlogininfo']['LOGINIDA'])."'

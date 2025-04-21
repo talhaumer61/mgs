@@ -29,7 +29,7 @@ $sqllms	= $dblms->querylms("SELECT summer_id, summer_status, summer_file, id_mon
                     <td class="text-center">'.$srno.'</td>
 					<td width="70"; class="center">'.get_monthtypes($value_summerwork['id_month']).'</td>
 					<td>'.$value_summerwork['note'].'</td>
-                    <td class="center"><a href="uploads/summer-work/'.$value_summerwork['id_month'].'" download="'.$value_summerwork['id_session'].'-'.$value_summerwork['class_name'].'" class="btn btn-success btn-xs");"><i class="glyphicon glyphicon-download"></i></a></td>
+                    <td class="center"><a href="uploads/summer-work/'.$value_summerwork['summer_file'].'" download="'.$value_summerwork['id_session'].'-'.$value_summerwork['class_name'].'" class="btn btn-success btn-xs");"><i class="glyphicon glyphicon-download"></i></a></td>
                 </tr>';
     }
     //-----------------------------------------------------

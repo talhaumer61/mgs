@@ -48,6 +48,18 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SES
 				ordering: false,
 			});
 		});
+		function get_classsubject(id_class) {  
+			$("#loading").html('<img src="images/ajax-loader-horizintal.gif"> loading...');  
+			$.ajax({  
+				type: "POST",  
+				url: "include/ajax/get_classsubject.php",  
+				data: "id_class="+id_class,  
+				success: function(msg){  
+					$("#getclasssubject").html(msg); 
+					$("#loading").html(''); 
+				}
+			});  
+		}
 	</script>
 	<?php 
 	//------------------------------------
