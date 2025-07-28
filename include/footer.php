@@ -10,6 +10,7 @@ echo'
 </div>
 </section>
 <!-- VENDOR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 <script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
 <script src="assets/vendor/nanoscroller/nanoscroller.js"></script>
@@ -84,11 +85,7 @@ echo'
 <!--Input Mask-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$("#std_familyno").mask("00000-0000000-0");
-	});
-</script>
+
 
 <script type="text/javascript">
 	jQuery(document).ready(function($)	{
@@ -126,7 +123,46 @@ echo'
 	});
 	
 	$(".counter").countUp();
+
+
 </script>
+<script>
+	// ==============================
+	// Admission Date
+	// ==============================
+	const admissionDate = document.getElementById("std_admissiondate");
+
+	// Set current date as default (mm/dd/yyyy)
+	const today = new Date();
+	const mm = String(today.getMonth() + 1).padStart(2, "0");
+	const dd = String(today.getDate()).padStart(2, "0");
+	const yyyy = today.getFullYear();
+	admissionDate.value = `${mm}/${dd}/${yyyy}`;
+
+	// Block non-date characters
+	admissionDate.addEventListener("keydown", function (e) {
+		const allowed = ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "Delete", "/", "Home", "End"];
+		const isNumber = e.key >= "0" && e.key <= "9";
+		if (!isNumber && !allowed.includes(e.key)) e.preventDefault();
+	});
+
+	// Validate date format on blur
+	admissionDate.addEventListener("blur", function () {
+		const pattern = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/\d{4}$/;
+		if (!pattern.test(this.value)) {
+			// alert("Please enter a valid date in mm/dd/yyyy format");
+			this.focus();
+		}
+	});
+
+	/* INPUT MASK */
+	$(document).ready(function(){
+		$(".cnic").mask("00000-0000000-0");
+		$(".phone").mask("9999-9999999");
+		$(".date_mask").mask("99-99-9999");
+	});
+</script>
+
 </body>
 </html>';
 ?>

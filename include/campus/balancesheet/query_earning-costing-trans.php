@@ -102,6 +102,7 @@ if(isset($_POST['submit_costing'])){
 						,'trans_type'		=>	'2'
 						,'trans_amount'		=>	cleanvars($_POST['trans_amount'])
 						,'voucher_no'		=>	cleanvars($_POST['voucher_no'])
+						,'bill_number'		=>	cleanvars($_POST['bill_number'])
 						,'trans_method'		=>	cleanvars($_POST['trans_method'])
 						,'trans_note'		=>	cleanvars($_POST['trans_note'])
 						,'dated'			=>	cleanvars($dated)
@@ -172,6 +173,7 @@ if(isset($_POST['changes_costing'])){
 						,'trans_type'		=>	'2'
 						,'trans_amount'		=>	cleanvars($_POST['trans_amount'])
 						,'voucher_no'		=>	cleanvars($_POST['voucher_no'])
+						,'bill_number'		=>	cleanvars($_POST['bill_number'])
 						,'trans_method'		=>	cleanvars($_POST['trans_method'])
 						,'trans_note'		=>	cleanvars($_POST['trans_note'])
 						,'dated'			=>	cleanvars($dated)

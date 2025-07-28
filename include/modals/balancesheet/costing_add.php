@@ -49,11 +49,28 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('29', $_SESSION['
                                 <label for="trans_method">Check</label>
                             </div>
                         </div>
-                    </div>
+                    </div>';
+                    $date = date("Ym");
+                    $sqllmschallan = $dblms->querylms("SELECT challan_no FROM ".FEES." 
+                                                        WHERE challan_no LIKE '".$date."%'  
+                                                        ORDER by challan_no DESC LIMIT 1 ");
+                    if(mysqli_num_rows($sqllmschallan) == 1){		
+                        $rowchallan = mysqli_fetch_array($sqllmschallan);
+                        $challano = ($rowchallan['challan_no'] +1);
+                    }else{
+                        $challano = $date.'00001';
+                    }
+                    echo '
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Voucher ID <span class="required" aria-required="true">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="voucher_no" value="" required="" title="Must Be Required" aria-required="true">
+                            <input type="text" class="form-control" name="voucher_no" value="'.$challano.'" required="" title="Must Be Required" aria-required="true" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Ref. Number</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="bill_number" title="Must Be Required" aria-required="true">
                         </div>
                     </div>
                     <div class="form-group mb-md">
@@ -71,7 +88,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('29', $_SESSION['
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Note</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="trans_note">
+                            <input type="text" class="form-control" name="trans_note" placeholder="expense_name@purpose@price@date:xyz">
                         </div>
                     </div>
                 </div>

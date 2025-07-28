@@ -21,7 +21,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('49', $_SESSION['
 					<div class="form-group mt-sm">
 						<label class="col-md-3 control-label">Admission ID <span class="required">*</span></label>
 						<div class="col-md-9">
-							<input type="text" class="form-control" name="form_no" id="form_no" value="'.$value_campus['campus_code'].'-'.$form_no.'" required title="Must Be Required" autocomplete="off">
+							<input type="text" class="form-control" name="form_no" id="form_no" value="'.$value_campus['campus_code'].'-'.$form_no.'" required title="Must Be Required" autocomplete="off" readonly/>
 						</div>
 					</div>
 					<div class="form-group mt-sm">
@@ -165,3 +165,62 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('49', $_SESSION['
 	</div>';
 }
 ?>
+<!-- Admission ID -->
+<script>
+	document.getElementById('form_no').addEventListener('keydown', function(e) {
+		const allowedKeys = ['Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete', 'Home', 'End'];
+		const isNumber = e.key >= '0' && e.key <= '9';
+		const isHyphen = e.key === '-';
+
+		// Allow navigation keys and control keys
+		if (allowedKeys.includes(e.key)) return;
+
+		// Allow digits
+		if (isNumber) return;
+
+		// Allow only one hyphen
+		if (isHyphen && !this.value.includes('-')) return;
+
+		// Block anything else
+		e.preventDefault();
+	});
+
+	// Prevent pasting invalid characters
+	document.getElementById('form_no').addEventListener('paste', function(e) {
+		e.preventDefault();
+		const paste = (e.clipboardData || window.clipboardData).getData('text');
+		const clean = paste.replace(/[^\d-]/g, '');
+
+		// Allow at most one hyphen
+		const final = clean.replace(/-/g, (match, offset, str) =>
+			str.indexOf('-') === offset ? '-' : ''
+		);
+
+		this.value += final;
+	});
+</script>
+<!-- Cell No -->
+<script>
+const cellInput = document.getElementById('cell_no');
+
+cellInput.addEventListener('keydown', function(e) {
+    const allowedKeys = ['Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete', 'Home', 'End'];
+    const isNumber = e.key >= '0' && e.key <= '9';
+
+    // Allow navigation keys
+    if (allowedKeys.includes(e.key)) return;
+
+    // Allow digits only if under 13 characters
+    if (isNumber && this.value.length < 13) return;
+
+    // Block everything else
+    e.preventDefault();
+});
+
+cellInput.addEventListener('paste', function(e) {
+    e.preventDefault();
+    const pasted = (e.clipboardData || window.clipboardData).getData('text');
+    const digits = pasted.replace(/\D/g, '').substring(0, 13); // Remove non-digits and limit to 13
+    this.value = digits;
+});
+</script>

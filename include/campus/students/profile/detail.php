@@ -1,8 +1,5 @@
 <?php 
-$sqllms	= $dblms->querylms("SELECT s.std_id, s.std_status, s.std_name, s.is_hostel, s.std_fathername, s.std_gender, s.id_guardian,
-								s.std_nic, s.std_familyno, s.std_phone, s.std_whatsapp, s.id_class, s.id_section, s.id_group, s.id_session,  s.std_rollno,
-								s.std_regno, s.std_photo, s.std_gender, s.std_dob, s.std_bloodgroup, s.id_country,
-								s.std_city, s.std_religion, s.std_address, s.admission_formno, s.std_admissiondate,
+$sqllms	= $dblms->querylms("SELECT s.*,
 								g.guardian_id, g.guardian_status, g.guardian_name,
 								c.class_id, c.class_status, c.class_name,
 								se.section_id, se.section_status, se.section_name, 
@@ -114,7 +111,48 @@ echo '
 						<tr>
 							<td>Address</td>
 							<td align="right">'.$rowsvalues['std_address'].'</td>
-						</tr>
+						</tr>';
+						if (!empty($rowsvalues['std_idcard'])) {
+							echo '
+							<tr>
+								<td>ID Card</td>
+								<td align="right">
+									<a class="btn btn-xs btn-primary" href="uploads/images/students/id_card/'.$rowsvalues['std_idcard'].'" target="_blank">View</a>
+								</td>
+							</tr>';
+						}
+
+						if (!empty($rowsvalues['std_birthcertificate'])) {
+							echo '
+							<tr>
+								<td>Birth Certificate</td>
+								<td align="right">
+									<a class="btn btn-xs btn-primary" href="uploads/images/students/birth_certificate/'.$rowsvalues['std_birthcertificate'].'" target="_blank">View</a>
+								</td>
+							</tr>';
+						}
+
+						if (!empty($rowsvalues['std_leavingcertificate'])) {
+							echo '
+							<tr>
+								<td>Leaving Certificate</td>
+								<td align="right">
+									<a class="btn btn-xs btn-primary" href="uploads/images/students/leaving_certificate/'.$rowsvalues['std_leavingcertificate'].'" target="_blank">View</a>
+								</td>
+							</tr>';
+						}
+
+						if (!empty($rowsvalues['std_otherdocuments'])) {
+							echo '
+							<tr>
+								<td>Other Documents</td>
+								<td align="right">
+									<a class="btn btn-xs btn-primary" href="uploads/images/students/other_documents/'.$rowsvalues['std_otherdocuments'].'" target="_blank">View</a>
+								</td>
+							</tr>';
+						}
+
+						echo'
 					</table>
 				</div>
 			</div>

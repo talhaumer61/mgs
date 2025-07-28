@@ -244,7 +244,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 			<div class="panel-heading">
 				<h4 class="panel-title"><i class="fa fa-crop"></i> Crop Image Before Upload
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">×</span>
+						<span aria-hidden="true">ï¿½</span>
 					</button>
 				</h4>
 			</div>

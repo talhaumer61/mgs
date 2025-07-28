@@ -5,7 +5,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('27', $_SESSION['
         <section class="panel panel-featured panel-featured-primary">
             <form action="earning.php" class="form-horizontal validate" method="post" accept-charset="utf-8" novalidate="novalidate">
             <div class="panel-heading">
-                <h4 class="panel-title"><i class="fa fa-plus-square"></i> Make Income Voucher</h4>
+                <h4 class="panel-title"><i class="fa fa-plus-square"></i> </h4>
             </div>
             <div class="panel-body">
                 <div class="form-group mt-sm">
@@ -88,7 +88,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('27', $_SESSION['
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Note</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="trans_note">
+                        <input type="text" class="form-control" name="trans_note" placeholder="income_name@purpose@price@date:xyz">
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ include "../../functions/functions.php";
 checkCpanelLMSALogin();
 
 if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('29', $_SESSION['userlogininfo']['PERMISSIONS'])) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '29', 'edit' => '1'))) {
-	$sqllms	= $dblms->querylms("SELECT trans_id, trans_status, trans_title, trans_amount, voucher_no, trans_method, receipt_image, trans_note, dated, id_head
+	$sqllms	= $dblms->querylms("SELECT trans_id, trans_status, trans_title, trans_amount, bill_number, voucher_no, trans_method, receipt_image, trans_note, dated, id_head
 									FROM ".ACCOUNT_TRANS."
 									WHERE trans_id  =   '".cleanvars($_GET['id'])."' 
                                     AND trans_type  =   '2'
@@ -33,7 +33,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('29', $_SESSION['
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Head <span class="required" aria-required="true">*</span></label>
                     <div class="col-sm-9">
-                        <select name="id_head" class="form-control select2-hidden-accessible" required="" data-plugin-selecttwo="" data-width="100%" data-minimum-results-for-search="Infinity" title="Must Be Required" aria-required="true" tabindex="-1" aria-hidden="true">
+                        <select name="id_head" class="form-control select2" required="" data-plugin-selecttwo="" data-width="100%" data-minimum-results-for-search="Infinity" title="Must Be Required" aria-required="true" tabindex="-1" aria-hidden="true">
                             <option value="">Select Costing Head</option>';
                             $sqllmshead	= $dblms->querylms("SELECT head_id, head_name
                                                             FROM ".ACCOUNT_HEADS."
@@ -69,9 +69,15 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('29', $_SESSION['
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Voucher ID <span class="required" aria-required="true">*</span></label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="voucher_no" value="'.$rowsvalues['voucher_no'].'" required="" title="Must Be Required" aria-required="true">
+                        <input type="text" class="form-control" name="voucher_no" value="'.$rowsvalues['voucher_no'].'" required="" title="Must Be Required" aria-required="true" readonly>
                     </div>
                 </div>
+                <div class="form-group">
+                        <label class="col-sm-3 control-label">Ref. Number</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="bill_number" value="'.$rowsvalues['bill_number'].'" title="Must Be Required" aria-required="true">
+                        </div>
+                    </div>
                 <div class="form-group mb-md">
                     <label class="col-sm-3 control-label"> Date <span class="required" aria-required="true">*</span></label>
                     <div class="col-sm-9">
@@ -87,7 +93,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('29', $_SESSION['
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Note </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="trans_note" value="'.$rowsvalues['trans_note'].'">
+                        <input type="text" class="form-control" name="trans_note" value="'.$rowsvalues['trans_note'].'" placeholder="expense_name@purpose@price@date:xyz">
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 $sqllms	= $dblms->querylms("SELECT s.std_id, s.std_status, s.std_name, s.std_fathername, s.std_gender, s.id_guardian,
 								s.std_nic, s.std_familyno, s.std_phone, s.std_whatsapp, s.id_class, s.id_section, s.id_group, s.id_session,  s.std_rollno,
 								s.std_regno, s.std_photo, s.std_gender, s.std_dob, s.std_bloodgroup, s.id_country,
-								s.std_city, s.std_religion, s.std_address, s.admission_formno, s.std_admissiondate,
+								s.std_city, s.std_prev_school, s.std_religion, s.std_address, s.admission_formno, s.std_admissiondate,
 								c.class_id, c.class_status, c.class_name,
 								se.section_id, se.section_status, se.section_name, 
 								gr.group_id, gr.group_status, gr.group_name 
@@ -282,6 +282,12 @@ echo '
 				<label class="col-sm-3 control-label">City</label>
 				<div class="col-md-8">
 					<input type="text" class="form-control" name="std_city" value="'.$rowsvalues['std_city'].'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Previous School</label>
+				<div class="col-md-8">
+					<input type="text" class="form-control" name="std_prev_school" value="'.$rowsvalues['std_prev_school'].'"/>
 				</div>
 			</div>
 			<div class="form-group">

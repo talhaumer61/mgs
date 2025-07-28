@@ -2,17 +2,23 @@
 // INSERT RECORD
 if(isset($_POST['submit_student'])) { 
 	$id_campus = (isset($_POST['id_campus']) && !empty($_POST['id_campus'])) ? $_POST['id_campus'] : $_SESSION['userlogininfo']['LOGINCAMPUS'];
-	$sqllmscheck  = $dblms->querylms("SELECT std_id
+	$sqllmscheck  = $dblms->querylms("
+										SELECT std_id
 										FROM ".STUDENTS." 
-										WHERE id_campus	=	'".cleanvars($id_campus)."' 
-										AND std_nic		=	'".cleanvars($_POST['std_nic'])."'
-										AND is_deleted	=	'0' LIMIT 1");
+										WHERE id_campus = '".cleanvars($id_campus)."' 
+										AND is_deleted = '0'
+										AND (
+												std_nic = '".cleanvars($_POST['std_nic'])."'
+												OR std_rollno = '".cleanvars($_POST['std_rollno'])."'
+										)
+										LIMIT 1
+									");
+										
 	if(mysqli_num_rows($sqllmscheck)) {
 		sessionMsg("Error", "Record Already Exists.", "error");
 		header("Location: ".strstr(basename($_SERVER['REQUEST_URI']), '.php', true).'.php?id_campus='.$id_campus.''."", true, 301);
 		exit();
 	}else{
-
 		// DATE VARIABLES
 		$dob = date('Y-m-d' , strtotime(cleanvars($_POST['std_dob'])));
 		$admissiondate = date('Y-m-d' , strtotime(cleanvars($_POST['std_admissiondate'])));
@@ -67,6 +73,7 @@ if(isset($_POST['submit_student'])) {
 															, std_dob  
 															, std_bloodgroup
 															, std_city 
+															, std_prev_school 
 															, std_familyno
 															, std_nic  
 															, std_religion  
@@ -95,6 +102,7 @@ if(isset($_POST['submit_student'])) {
 															, '".cleanvars($dob)."'
 															, '".cleanvars($_POST['std_bloodgroup'])."' 
 															, '".cleanvars($_POST['std_city'])."' 
+															, '".cleanvars($_POST['std_prev_school'])."' 
 															, '".cleanvars($_POST['std_familyno'])."'  
 															, '".cleanvars($_POST['std_nic'])."' 
 															, '".cleanvars($_POST['std_religion'])."' 
@@ -428,12 +436,18 @@ if(isset($_POST['changes_student'])) {
 	}else{
 		$filter = '?id_campus='.$id_campus.'';
 	}
-	$sqllmscheck  = $dblms->querylms("SELECT std_id
-										FROM ".STUDENTS." 
-										WHERE id_campus	=	'".cleanvars($id_campus)."' 
-										AND std_nic		=	'".cleanvars($_POST['std_nic'])."'
-										AND is_deleted	=	'0'
-										AND std_id     !=	'".cleanvars($_POST['std_id'])."' LIMIT 1");
+	$sqllmscheck  = $dblms->querylms("
+										SELECT std_id
+										FROM ".STUDENTS."
+										WHERE is_deleted = '0'
+										AND id_campus = '".cleanvars($id_campus)."'
+										AND std_id != '".cleanvars($_POST['std_id'])."'
+										AND (
+											std_nic = '".cleanvars($_POST['std_nic'])."'
+											OR std_rollno = '".cleanvars($_POST['std_rollno'])."'
+										)
+										LIMIT 1
+									");
 	if(mysqli_num_rows($sqllmscheck)) {
 		$_SESSION['msg']['title'] 	= 'Error';
 		$_SESSION['msg']['text'] 	= 'Record Already Exists';
@@ -463,6 +477,7 @@ if(isset($_POST['changes_student'])) {
 														, std_dob			=	'".cleanvars($dob)."' 
 														, std_bloodgroup	=	'".cleanvars($_POST['std_bloodgroup'])."' 
 														, std_city			=	'".cleanvars($_POST['std_city'])."' 
+														, std_prev_school	=	'".cleanvars($_POST['std_prev_school'])."' 
 														, std_familyno		=	'".cleanvars($_POST['std_familyno'])."' 
 														, std_nic			=	'".cleanvars($_POST['std_nic'])."' 
 														, std_religion		=	'".cleanvars($_POST['std_religion'])."' 

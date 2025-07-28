@@ -224,14 +224,15 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 						<th width="40">Photo</th>
 						<th>Student Name</th>
 						<th>Father Name</th>
-						<th>Roll no</th>
+						<th width="40">Roll no</th>
 						<th>Class</th>
 						<th>Section</th>
 						<th>Phone</th>
 						<th>CNIC</th>
-						<th width="90" class="center">Tuition Fee</th>
-						<th width="85" class="center">Hostel Fee</th>
-						<th width="100" class="center">Documents</th>
+						<th>Gender</th>
+						<th width="90" class="center">Tuition Fee</th>';
+						// echo '<th width="100" class="center">Documents</th>';
+						echo'
 						<th width="70" class="center">Status</th>
 						<th width="50" class="center">Options</th>
 					</tr>
@@ -294,8 +295,10 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 							<td>'.$rowsvalues['section_name'].'</td>
 							<td>'.$rowsvalues['std_phone'].'</td>
 							<td>'.$rowsvalues['std_nic'].'</td>
-							<td class="center">'.(isset($rowsvalues['amount']) && !empty($rowsvalues['amount']) ? ($rowsvalues['amount'] - $discount).' Rs.' : 'None').'</td>
-							<td class="center">'.(isset($rowsvalues['fee']) && !empty($rowsvalues['fee']) ? $rowsvalues['fee'].' Rs.' : 'None').'</td>
+							<td>'.$rowsvalues['std_gender'].'</td>
+							<td class="center">'.(isset($rowsvalues['amount']) && !empty($rowsvalues['amount']) ? ($rowsvalues['amount'] - $discount).' Rs.' : 'None').'</td>';
+							/*
+							echo'
 							<td class="center">';
 								if(!empty($rowsvalues['std_idcard']) || !empty($rowsvalues['std_otherdocuments']) || !empty($rowsvalues['std_leavingcertificate']) || !empty($rowsvalues['std_birthcertificate'])){
 									echo'
@@ -321,7 +324,9 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 									echo 'None';
 								}
 								echo'
-							</td>
+							</td>';
+							*/
+							echo'
 							<td class="center">'.get_stdstatus($rowsvalues['std_status']).'</td>
 							<td class="center">
 								<div class="dropdown">

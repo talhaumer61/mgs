@@ -59,7 +59,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Admission ID </label>
-									<input type="text" class="form-control" name="form_no" id="form_no" title="Must Be Required" autofocus >
+									<input type="text" pattern="\d{4}-\d{3}" class="form-control" name="form_no" id="form_no" value="'.$value_campus['campus_code'].'-'.$form_no.'" title="Must Be Required" autofocus>
 								</div>
 							</div>';
 							if(!empty($_SESSION['userlogininfo']['SUBCAMPUSES'])){
@@ -127,19 +127,19 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 								<div class="col-sm-3">
 									<div class="form-group">
 										<label class="control-label">Family No <span class="text-danger">(Father CNIC)</span></label>
-										<input type="text" class="form-control" name="std_familyno" id="std_familyno">
+										<input type="text" class="form-control cnic" name="std_familyno" id="std_familyno">
 									</div>
 								</div>
 								<div class="col-sm-3">
 									<div class="form-group">
 										<label class="control-label">NIC / B-Form <span class="required">*</span></label>
-										<input type="text" class="form-control" name="std_nic" id="std_nic" required="">
+										<input type="text" class="form-control cnic" name="std_nic" id="std_cnic" placeholder="xxxxx-xxxxxxx-x"" id="std_nic" required="">
 									</div>
 								</div>
 								<div class="col-sm-3">
 									<div class="form-group">
 										<label class="control-label">Phone <span class="required">*</span></label>
-										<input type="text" class="form-control" name="std_phone" id="std_phone" required title="Must Be Required">
+										<input type="text" class="form-control phone" name="std_phone" id="std_phone" required title="Must Be Required">
 									</div>
 								</div>
 								<div class="col-sm-3">
@@ -161,13 +161,13 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 								<div class="col-sm-3">
 									<div class="form-group">
 										<label class="control-label">Whatsapp </label>
-										<input type="text" class="form-control" id="std_whatsapp" name="std_whatsapp">
+										<input type="text" class="form-control phone" id="std_whatsapp" name="std_whatsapp">
 									</div>
 								</div>
 								<div class="col-sm-3">
 									<div class="form-group">
 										<label class="control-label">Date of Birth </label>
-										<input type="text" class="form-control" name="std_dob" id="std_dob" data-plugin-datepicker>
+										<input type="text" class="form-control date_mask" name="std_dob" id="std_dob" data-plugin-datepicker>
 									</div>
 								</div>
 								<div class="col-sm-3">
@@ -268,13 +268,19 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-sm-6">
+								<div class="col-sm-4">
+									<div class="form-group">
+										<label class="control-label">Previous School</label>
+										<input type="text" class="form-control" name="std_prev_school" id="std_prev_school">
+									</div>
+								</div>
+								<div class="col-sm-4">
 									<div class="form-group">
 										<label class="control-label">ID Card</label>
 										<input type="file" class="form-control" name="std_idcard" id="std_idcard" accept="image/*, application/msword, application/pdf">
 									</div>
 								</div>
-								<div class="col-sm-6">
+								<div class="col-sm-4">
 									<div class="form-group">
 										<label class="control-label">Father ID Card</label>
 										<input type="file" class="form-control" name="std_fatheridcard" id="std_fatheridcard" accept="image/*, application/msword, application/pdf">
@@ -336,8 +342,102 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 				</form>
 			</section>
 		</div>
-	</div>';
+	</div>
+	
+
+	
+	';
 } else {
 	header("Location: dashboard.php");
 }
 ?>
+
+<!-- 
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+
+		// ======================
+		// Admission ID (form_no)
+		// ======================
+		const formNo = document.getElementById("form_no");
+		formNo.addEventListener("keydown", function (e) {
+			const allowed = ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "Delete", "Home", "End"];
+			const isNumber = e.key >= "0" && e.key <= "9";
+			const isHyphen = e.key === "-";
+
+			if (allowed.includes(e.key)) return;
+			if (isNumber) return;
+			if (isHyphen && !this.value.includes("-")) return;
+
+			e.preventDefault();
+		});
+		formNo.addEventListener("paste", function (e) {
+			e.preventDefault();
+			const pasted = (e.clipboardData || window.clipboardData).getData("text");
+			const cleaned = pasted.replace(/[^\d-]/g, "").replace(/(?!^)-/g, ""); // only first hyphen
+			this.value += cleaned;
+		});
+
+		// ==============================
+		// Student & Father Name (letters only)
+		// ==============================
+		function allowOnlyLetters(id) {
+			const input = document.getElementById(id);
+			input.addEventListener("input", function () {
+				this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+			});
+		}
+		allowOnlyLetters("std_name");
+		allowOnlyLetters("std_fathername");
+
+		// ==============================
+		// Admission Date
+		// ==============================
+		const admissionDate = document.getElementById("std_admissiondate");
+
+		// Set current date as default (mm/dd/yyyy)
+		const today = new Date();
+		const mm = String(today.getMonth() + 1).padStart(2, "0");
+		const dd = String(today.getDate()).padStart(2, "0");
+		const yyyy = today.getFullYear();
+		admissionDate.value = `${mm}/${dd}/${yyyy}`;
+
+		// Block non-date characters
+		admissionDate.addEventListener("keydown", function (e) {
+			const allowed = ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "Delete", "/", "Home", "End"];
+			const isNumber = e.key >= "0" && e.key <= "9";
+			if (!isNumber && !allowed.includes(e.key)) e.preventDefault();
+		});
+
+		// Validate date format on blur
+		admissionDate.addEventListener("blur", function () {
+			const pattern = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/\d{4}$/;
+			if (!pattern.test(this.value)) {
+				alert("Please enter a valid date in mm/dd/yyyy format");
+				this.focus();
+			}
+		});
+
+		// ==============================
+		// Phone & WhatsApp (13-digit only)
+		// ==============================
+		function restrictTo13Digits(id) {
+			const input = document.getElementById(id);
+
+			input.addEventListener("keydown", function (e) {
+				const allowed = ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "Delete"];
+				const isNumber = e.key >= "0" && e.key <= "9";
+				if (!isNumber && !allowed.includes(e.key)) e.preventDefault();
+				if (this.value.length >= 13 && isNumber) e.preventDefault();
+			});
+
+			input.addEventListener("input", function () {
+				this.value = this.value.replace(/[^0-9]/g, "").substring(0, 13);
+			});
+		}
+		restrictTo13Digits("std_phone");
+		restrictTo13Digits("std_whatsapp");
+
+	});
+</script> -->
