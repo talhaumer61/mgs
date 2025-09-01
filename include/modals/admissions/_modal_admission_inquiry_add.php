@@ -39,7 +39,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('49', $_SESSION['
 					<div class="form-group mt-sm">
 						<label class="col-md-3 control-label">Gender <span class="required">*</span></label>
 						<div class="col-md-9">
-							<select id="gender" name="gender" class="form-control populate" required title="Must Be Required">
+							<select id="gender" name="gender" data-plugin-selectTwo data-minimum-results-for-search="Infinity" data-width="100%" class="form-control populate" required title="Must Be Required">
 								<option value="">Select</option>
 								<option value="Male" >Male</option>
 								<option value="Female" >Female</option>
@@ -61,7 +61,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('49', $_SESSION['
 					<div class="form-group mt-sm">
 						<label class="col-md-3 control-label">Previous Class </label>
 						<div class="col-md-9">
-							<select class="form-control" name="id_previousclass">
+							<select class="form-control" data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" name="id_previousclass">
 								<option value="">Select</option>';
 									$sqllmscls	= $dblms->querylms("SELECT class_id, class_name 
 																		FROM ".CLASSES."
@@ -84,7 +84,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('49', $_SESSION['
 					<div class="form-group mt-sm">
 						<label class="col-md-3 control-label">Inquiry for Class <span class="required">*</span></label>
 						<div class="col-md-9">
-							<select class="form-control" required title="Must Be Required" name="id_class">
+							<select class="form-control" required title="Must Be Required" data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" name="id_class">
 								<option value="">Select</option>';
 									$sqllmscls	= $dblms->querylms("SELECT class_id, class_name 
 																		FROM ".CLASSES."
@@ -103,7 +103,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('49', $_SESSION['
 						<div class="form-group mt-sm">
 							<label class="col-md-3 control-label">Sub Campus</label>
 							<div class="col-md-9">
-								<select class="form-control" title="Must Be Required"  id="id_campus" name="id_campus" title="Must Be Required" onchange="get_class(this.value)">
+								<select class="form-control" title="Must Be Required" data-plugin-selectTwo data-width="100%" id="id_campus" name="id_campus" title="Must Be Required" onchange="get_class(this.value)">
 									<option value="">Select</option>';
 									$sqlSubCampus	= $dblms->querylms("SELECT campus_id, campus_name 
 																	FROM ".CAMPUS." 
@@ -123,7 +123,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('49', $_SESSION['
 					<div class="form-group mt-sm">
 						<label class="col-md-3 control-label">Source <span class="required">*</span></label>
 						<div class="col-md-9">
-							<select id="source" name="source" class="form-control populate" required title="Must Be Required">
+							<select id="source" name="source" data-plugin-selectTwo data-minimum-results-for-search="Infinity" data-width="100%" class="form-control populate" required title="Must Be Required">
 								<option value="">Select</option>';
 								foreach($inquirysrc as $source){
 								echo '<option value="'.$source['id'].'">'.$source['name'].'</option>';
@@ -222,29 +222,5 @@ cellInput.addEventListener('paste', function(e) {
     const pasted = (e.clipboardData || window.clipboardData).getData('text');
     const digits = pasted.replace(/\D/g, '').substring(0, 13); // Remove non-digits and limit to 13
     this.value = digits;
-});
-
-// jQuery(document).ready(function($) {
-// 	$(".selectTwo").select2({
-// 		dropdownParent: $("#admission_inquiry"),
-// 		minimumResultsForSearch: 0,
-// 		width: "100%"
-// 	});
-// });
-
-// jQuery(document).ready(function($) {
-//     $("#admission_inquiry select").select2({
-//         dropdownParent: $("#admission_inquiry"),
-//         minimumResultsForSearch: 0,
-//         width: "100%"
-//     });
-// });
-
-jQuery(document).ready(function($) {
-    $('.modal select').select2({
-        dropdownParent: $(this).closest('.modal'),
-        minimumResultsForSearch: 0,
-        width: "100%"
-    });
 });
 </script>

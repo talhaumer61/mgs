@@ -8,25 +8,94 @@ include "../functions/functions.php";
 if(!isset($_POST['method']) && isset($_POST['id_class'])){
     $id_campus 		= ((isset($_POST['id_campus']) && !empty($_POST['id_campus'])))? cleanvars($_POST['id_campus']): cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS']);
 
-    $condition = array(
-                             'select'       =>  'cs.section_id, cs.section_name' 
-                            ,'where'        =>  array(
-                                                         'cs.is_deleted' 	=> 0
-                                                        ,'cs.id_class'  	=> cleanvars($_POST['id_class'])
-                                            )
-                            ,'search_by'	=>	' AND cs.id_campus IN ('.$id_campus.')'
-                            ,'return_type'  =>  'all'
-    );
-	$CLASS_SECTIONS = $dblms->getRows(CLASS_SECTIONS.' cs', $condition);
-    if ($CLASS_SECTIONS) {
-        echo'<option value="">Select</option>';
-        foreach ($CLASS_SECTIONS AS $key => $val) {
-            echo '<option value="'.$val['section_id'].'">'.$val['section_name'].'</option>';
+    $sqllmscheck  = $dblms->querylms("SELECT id_session, id_class
+										FROM ".FEESETUP." 
+										WHERE id_class 	= '".cleanvars($_POST['id_class'])."'
+										AND id_session 	= '".cleanvars($_POST['id_session'])."'
+										AND id_campus   = '".cleanvars($id_campus)."' 
+										AND is_deleted != '1' LIMIT 1");
+	if(mysqli_num_rows($sqllmscheck)) {
+//--------------------------------------
+        echo json_encode([
+            'status' => 'error',
+            'title'  => 'Error',
+            'text'   => 'Record Already Exists'
+        ]);
+		exit();
+            
+	} else { 
+
+        $condition = array(
+            'select'       =>  'cs.section_id, cs.section_name' 
+            ,'where'        =>  array(
+                                        'cs.is_deleted' 	=> 0
+                                        ,'cs.id_class'  	=> cleanvars($_POST['id_class'])
+                            )
+            ,'search_by'	=>	' AND cs.id_campus IN ('.$id_campus.')'
+            ,'return_type'  =>  'all'
+        );
+        $CLASS_SECTIONS = $dblms->getRows(CLASS_SECTIONS.' cs', $condition);
+        if ($CLASS_SECTIONS) {
+            $options ='<option value="">Select</option>';
+            foreach ($CLASS_SECTIONS AS $key => $val) {
+                $options .=  '<option value="'.$val['section_id'].'">'.$val['section_name'].'</option>';
+            }
+        } else {
+            $options =  '<option value="">Please Add Section First</option>';
         }
-    } else {
-        echo '<option value="">Please Add Section First</option>';
+
+        echo json_encode([
+            'status' => 'success',
+            'html'   => $options
+        ]);
+        exit;
     }
 }
+
+// if(!isset($_POST['method']) && isset($_POST['id_class'])) {
+//     $id_campus = ((isset($_POST['id_campus']) && !empty($_POST['id_campus']))) ? cleanvars($_POST['id_campus']) : cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS']);
+    
+//     $sqllmscheck = $dblms->querylms("SELECT id_session, id_class
+//                                     FROM ".FEESETUP." 
+//                                     WHERE id_class = '".cleanvars($_POST['id_class'])."'
+//                                     AND id_session = '".cleanvars($_POST['id_session'])."'
+//                                     AND id_campus = '".cleanvars($id_campus)."' 
+//                                     AND is_deleted != '1' LIMIT 1");
+//     if(mysqli_num_rows($sqllmscheck)) {
+//         echo json_encode([
+//             'status' => 'error',
+//             'message' => 'Record already exists.'
+//         ]);
+//         exit;
+//     } else { 
+//         $condition = array(
+//             'select'       =>  'cs.section_id, cs.section_name',
+//             'where'        =>  array(
+//                                     'cs.is_deleted' => 0,
+//                                     'cs.id_class'   => cleanvars($_POST['id_class'])
+//                                 ),
+//             'search_by'    =>  ' AND cs.id_campus IN ('.$id_campus.')',
+//             'return_type'  =>  'all'
+//         );
+//         $CLASS_SECTIONS = $dblms->getRows(CLASS_SECTIONS.' cs', $condition);
+//         if ($CLASS_SECTIONS) {
+//             $options = '<option value="">Select</option>';
+//             foreach ($CLASS_SECTIONS AS $key => $val) {
+//                 $options .= '<option value="'.$val['section_id'].'">'.$val['section_name'].'</option>';
+//             }
+//             echo json_encode([
+//                 'status' => 'success',
+//                 'options' => $options
+//             ]);
+//         } else {
+//             echo json_encode([
+//                 'status' => 'success',
+//                 'options' => '<option value="">Please Add Section First</option>'
+//             ]);
+//         }
+//         exit;
+//     }
+// }
 if($_POST['method'] == 'attendance_marked_sections' && isset($_POST['id_class'])){
     $id_campus 		= ((isset($_POST['id_campus']) && !empty($_POST['id_campus'])))? cleanvars($_POST['id_campus']): cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS']);
 

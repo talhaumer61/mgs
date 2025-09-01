@@ -64,93 +64,7 @@ if(isset($_POST['submit_student'])) {
 			$regno = $value_regno['std_regno'];
 			$regno++;
 		}
-															// echo '<br> <br>'. cleanvars($_POST['std_status']);
-															// echo '<br> <br> '. cleanvars($_POST['std_name']);
-															// echo '<br> <br>'. cleanvars($_POST['std_fathername']);
-															// echo '<br> <br>'. cleanvars($_POST['std_gender']); 
-															// echo '<br> <br>'. cleanvars($_POST['id_guardian']); 
-															// echo '<br> <br>'. cleanvars($dob);
-															// echo '<br> <br>'. cleanvars($_POST['std_bloodgroup']); 
-															// echo '<br> <br>'. cleanvars($_POST['std_city']); 
-															// echo '<br> <br>'. cleanvars($_POST['std_prev_school']); 
-															// echo '<br> <br>'. cleanvars($_POST['std_familyno']);  
-															// echo '<br> <br>'. cleanvars($_POST['std_nic']); 
-															// echo '<br> <br>'. cleanvars($_POST['std_religion']); 
-															// echo '<br> <br>'. cleanvars($_POST['std_phone']); 
-															// echo '<br> <br>'. cleanvars($_POST['std_whatsapp']); 
-															// echo '<br> <br>'. cleanvars($_POST['std_address']); 
-															// echo '<br> <br>'. cleanvars($_POST['id_class']); 
-															// echo '<br> <br>'. cleanvars($_POST['id_section']); 
-															// echo '<br> <br>'. cleanvars($_POST['id_group']); 
-															// echo '<br> <br>'. cleanvars($_POST['id_session']); 
-															// echo '<br> <br>'. cleanvars($_POST['std_rollno']); 
-															// echo '<br> <br>'. cleanvars($regno); 
-															// echo '<br> <br>'. cleanvars($_POST['form_no']);
-															// echo '<br> <br>'. cleanvars($admissiondate);
-															// echo '<br> <br>'. cleanvars($id_campus);
-															// echo '<br> <br>'. cleanvars($_SESSION['userlogininfo']['LOGINIDA']);
-															// exit;
-		// $sqllms  = $dblms->querylms("INSERT INTO ".STUDENTS."(
-		// 													  std_status 
-		// 													, std_name
-		// 													, std_fathername  
-		// 													, std_gender  
-		// 													, id_guardian  
-		// 													, std_dob  
-		// 													, std_bloodgroup
-		// 													, std_city 
-		// 													, std_prev_school 
-		// 													, std_familyno
-		// 													, std_nic  
-		// 													, std_religion  
-		// 													, std_phone 
-		// 													, std_whatsapp 
-		// 													, std_address  
-		// 													, id_class  
-		// 													, id_section  
-		// 													, id_group  
-		// 													, id_session  
-		// 													, std_rollno  
-		// 													, std_regno
-		// 													, admission_formno  
-		// 													, std_admissiondate
-		// 													, id_campus
-		// 													, id_added  
-		// 													, date_added
-		// 													, is_hostel
-		// 												)
-		// 											VALUES(
-		// 													  '".cleanvars($_POST['std_status'])."' 
-		// 													, '".cleanvars($_POST['std_name'])."'
-		// 													, '".cleanvars($_POST['std_fathername'])."'
-		// 													, '".cleanvars($_POST['std_gender'])."' 
-		// 													, '".cleanvars($_POST['id_guardian'])."' 
-		// 													, '".cleanvars($dob)."'
-		// 													, '".cleanvars($_POST['std_bloodgroup'])."' 
-		// 													, '".cleanvars($_POST['std_city'])."' 
-		// 													, '".cleanvars($_POST['std_prev_school'])."' 
-		// 													, '".cleanvars($_POST['std_familyno'])."'  
-		// 													, '".cleanvars($_POST['std_nic'])."' 
-		// 													, '".cleanvars($_POST['std_religion'])."' 
-		// 													, '".cleanvars($_POST['std_phone'])."' 
-		// 													, '".cleanvars($_POST['std_whatsapp'])."' 
-		// 													, '".cleanvars($_POST['std_address'])."' 
-		// 													, '".cleanvars($_POST['id_class'])."' 
-		// 													, '".cleanvars($_POST['id_section'])."' 
-		// 													, '".cleanvars($_POST['id_group'])."' 
-		// 													, '".cleanvars($_POST['id_session'])."' 
-		// 													, '".cleanvars($_POST['std_rollno'])."' 
-		// 													, '".cleanvars($regno)."' 
-		// 													, '".cleanvars($_POST['form_no'])."'
-		// 													, '".cleanvars($admissiondate)."'
-		// 													, '".cleanvars($id_campus)."'
-		// 													, '".cleanvars($_SESSION['userlogininfo']['LOGINIDA'])."'
-		// 													, NOW()
-		// 													, '2'
-		// 												)"
-		// 						);
-
-				$sqllms  = $dblms->querylms("INSERT INTO ".STUDENTS."(
+		$sqllms  = $dblms->querylms("INSERT INTO ".STUDENTS."(
 															  std_status 
 															, std_name
 															, std_fathername  
@@ -159,6 +73,7 @@ if(isset($_POST['submit_student'])) {
 															, std_dob  
 															, std_bloodgroup
 															, std_city 
+															, std_prev_school 
 															, std_familyno
 															, std_nic  
 															, std_religion  
@@ -187,6 +102,7 @@ if(isset($_POST['submit_student'])) {
 															, '".cleanvars($dob)."'
 															, '".cleanvars($_POST['std_bloodgroup'])."' 
 															, '".cleanvars($_POST['std_city'])."' 
+															, '".cleanvars($_POST['std_prev_school'])."' 
 															, '".cleanvars($_POST['std_familyno'])."'  
 															, '".cleanvars($_POST['std_nic'])."' 
 															, '".cleanvars($_POST['std_religion'])."' 
@@ -197,7 +113,7 @@ if(isset($_POST['submit_student'])) {
 															, '".cleanvars($_POST['id_section'])."' 
 															, '".cleanvars($_POST['id_group'])."' 
 															, '".cleanvars($_POST['id_session'])."' 
-															, '".cleanvars($newRollno)."' 
+															, '".cleanvars($_POST['std_rollno'])."' 
 															, '".cleanvars($regno)."' 
 															, '".cleanvars($_POST['form_no'])."'
 															, '".cleanvars($admissiondate)."'
@@ -210,7 +126,7 @@ if(isset($_POST['submit_student'])) {
 		$std_id = $dblms->lastestid();
 
 		// UPLOAD PROFILE PHOTO
-		
+		/*
 		if(isset($_POST['std_photo']) && !empty($_POST['std_photo'])){
 			//	CONVERT CROPPED IMAGE DATA
 			$data = $_POST['std_photo'];
@@ -232,28 +148,28 @@ if(isset($_POST['submit_student'])) {
 				file_put_contents($originalImage, $data);
 			}
 		}
-		
+		*/
 
-		// if(!empty($_FILES['std_photo']['name'])) { 
-		// 	$path_parts 	= pathinfo($_FILES["std_photo"]["name"]);
-		// 	$extension 		= strtolower($path_parts['extension']);
-		// 	$img_dir		= 'uploads/images/students/';
+		if(!empty($_FILES['std_photo']['name'])) { 
+			$path_parts 	= pathinfo($_FILES["std_photo"]["name"]);
+			$extension 		= strtolower($path_parts['extension']);
+			$img_dir		= 'uploads/images/students/';
 			
-		// 	$originalImage	= $img_dir.to_seo_url(cleanvars($_POST['std_name'])).'-'.$std_id.".".($extension);
-		// 	$img_fileName	= to_seo_url(cleanvars($_POST['std_name'])).'-'.$std_id.".".($extension);
+			$originalImage	= $img_dir.to_seo_url(cleanvars($_POST['std_name'])).'-'.$std_id.".".($extension);
+			$img_fileName	= to_seo_url(cleanvars($_POST['std_name'])).'-'.$std_id.".".($extension);
 			
-		// 	if(in_array($extension , array('jpg','jpeg', 'gif', 'png', 'docx', 'pdf'))) {
-		// 		$values = array (
-		// 							"std_photo"	=>	$img_fileName
-		// 						);
-		// 		$sqllmsupload = $dblms->Update(STUDENTS , $values , "WHERE std_id = '".cleanvars($std_id)."'");
+			if(in_array($extension , array('jpg','jpeg', 'gif', 'png', 'docx', 'pdf'))) {
+				$values = array (
+									"std_photo"	=>	$img_fileName
+								);
+				$sqllmsupload = $dblms->Update(STUDENTS , $values , "WHERE std_id = '".cleanvars($std_id)."'");
 
-		// 		unset($sqllmsupload);
-		// 		$mode = '0644';			
-		// 		move_uploaded_file($_FILES['std_photo']['tmp_name'],$originalImage);
-		// 		chmod ($originalImage, octdec($mode));
-		// 	}
-		// }
+				unset($sqllmsupload);
+				$mode = '0644';			
+				move_uploaded_file($_FILES['std_photo']['tmp_name'],$originalImage);
+				chmod ($originalImage, octdec($mode));
+			}
+		}
 
 
 

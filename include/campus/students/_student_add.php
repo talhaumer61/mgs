@@ -1,144 +1,3 @@
-<style>
-
-/* #preview {
-    width: 100%;
-    height: 100%;
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
-
-  .crop-container {
-    width: 50%;
-    height: 50%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000; 
-  } */
-
-    /* #cropContainer {
-      display: none;
-      margin-top: 20px;
-    }
-    #imageToCrop {
-      width: 50%;
-    }
-    #croppedImage {
-      margin-top: 20px;
-      width: 100%;
-      display: none;
-    } */
-
- /* #preview {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border: 2px solid #ccc;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    #modal {
-      display: none; 
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    #crop-modal {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 90%;
-      max-height: 90%;
-      overflow-y: auto;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-
-    #crop-image {
-      max-width: 100%;
-      max-height: 60vh;
-      display: block;
-      margin: 0 auto;
-    }
-
-    #close-btn {
-      background: #ccc;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 3px;
-      float: right;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-
-    #crop-btn {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto 0;
-    }
-
-    input[type="file"] {
-      margin-top: 10px;
-    } */
-
-#preview {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* Modal Overlay */
-#modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Modal Content Box */
-#crop-modal {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 90%;
-  width: 400px;
-  max-height: 90vh;
-  overflow-y: auto;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-/* Crop Image Preview in Modal */
-#crop-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  margin-top: 15px;
-}
-</style>
 <?php
 if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['userlogininfo']['PERMISSIONS'])) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '1', 'add' => '1'))) {	
 	$sqllmscampus  = $dblms->querylms("SELECT campus_code
@@ -160,93 +19,20 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 						<h4 class="panel-title"><i class="fa fa-plus-square"></i> Add Student</h4>
 					</div>
 					<div class="panel-body">
-						<label class="control-label">Photo</label>
+						<label class="control-label">Choose Photo</label>
 						<div class="row">
-							<div class="col-md-6">';
-								// <div class="image_area">
-								// 	<label for="upload_image">
-								// 		<img src="uploads/default-student.jpg" id="uploaded_image" class="img-responsive thumbnail mb-none" width="200" />
-								// 		<div class="overlay">
-								// 			<div class="text-overlay"><h6>Click to Change Profile Image</h6></div>
-								// 		</div>
-								// 		<input type="file" name="image" class="image" id="upload_image" accept="image/*" oninput="getCropped()" style="display:none;"/>
-								// 		<input type="hidden" name="std_photo" id="std_photo">
-								// 	</label>
-								// </div>
-								
-									// <input type="file" name="image" id="imageInput" accept="image/*"><br>
-									// <canvas id="canvas" style="display:none;"></canvas>
-									// <div>
-									// 	<img id="preview" src="uploads/student-default.jpg" alt="Selected Image" style="width: 150px; height:150px">
-									// </div>
-									// <br>
-									// <button id="cropBtn">Crop</button>
-								
-								// <input type="file" class="form-control" name="std_photo" id="imageInput" style="width: 35%; margin-bottom: 30px !important">
-								
-								// <div class="crop-container">
-								// 	<img src="uploads/student-default.jpg" id="preview" alt="Upload an image to preview">
-								// </div>
-								// <button class="btn" type="button" id="cropBtn" style="margin-top: 10px !important">Click to Crop</button>
-								
-										// <input type="file" id="inputImage" accept="image/*" />
-										// <div id="cropContainer" style="display:none;">
-										// 	<img id="imageToCrop" style="max-width:100%;" />
-										// 	<button id="cropButton">Crop</button>
-										// </div>
-										// <canvas id="resultCanvas" style="display:none;"></canvas>
-										
-												
-										
+							<div class="col-md-6">
+								<div class="image_area">
+									<label for="upload_image">
+										<img src="uploads/default-student.jpg" id="uploaded_image" class="img-responsive thumbnail mb-none" width="200" />
+										<div class="overlay">
+											<div class="text-overlay"><h6>Click to Change Profile Image</h6></div>
+										</div>
+										<input type="file" name="image" class="image" id="upload_image" accept="image/*" oninput="getCropped()" style="display:none;"/>
+										<input type="hidden" name="std_photo" id="std_photo">
+									</label>
+								</div>
 
-										// <div id="cropContainer" style="display: none; width: 300px;  overflow: hidden;">
-										// 	<img id="imageToCrop" style="width: 100%; display: block;" />
-										// 	<button type="button" class="btn" id="cropButton" style="color:black; margin-bottom: 10px; margin-top:10px !important">
-										// 		Crop Photo
-										// 	</button>
-										// </div>
-
-
-
-										// <div id="result" style="width: 50%; margin-bottom:0px;">
-										// 	<img id="croppedImage" style="width:50%; height:50%; display:none;" />
-										// </div>
-										// <input type="file" class="form-control" style="width: 35%; margin-bottom: 10px !important; margin-top: 5px !important"  id="inputImage" accept="image/*" />
-									
-										//   <h2>Select an Image</h2>
-										// 	<input type="file" id="inputImage" accept="image/*" />
-
-										// 	<div id="cropContainer">
-										// 		<img id="imageToCrop" />
-										// 		<br />
-										// 		<button id="cropButton">Crop</button>
-										// 	</div>
-
-										// 	<h3>Cropped Image Result:</h3>
-										// 	<img id="croppedImage" />
-											echo'
-												
-												<!-- Image Preview -->
-												<img id="preview" src="uploads/student-default.jpg" alt="Click to Change Image">
-
-												<!-- Hidden Input for Cropped Image -->
-												<input type="hidden" name="std_photo" id="cropped-image-input">
-
-												<br><br>
-												
-
-												<!-- Modal -->
-												<div id="modal">
-													<div id="crop-modal">
-													<button class="btn" id="close-btn">Close</button>
-													<h3>Choose & Crop Image</h3>
-													<input class="form-control" type="file" id="image-input" accept="image/*">
-													<br><br>
-													<img id="crop-image" src="" alt="Crop Target">
-													<br><br>
-													<button class="btn" type="button" id="crop-btn">Crop & Set Image</button>
-													</div>
-												</div>
 								<!--
 								<div class="fileinput fileinput-new" data-provides="fileinput">
 									<div class="fileinput-new thumbnail" style="width: 130px; height: 130px;" data-trigger="fileinput">
@@ -483,22 +269,19 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 								<div class="col-sm-4">
 									<div class="form-group">
 										<label class="control-label">Previous School</label>
-										<input type="text" class="form-control limit" name="std_prev_school" id="std_prev_school">
-										<small class="file-size-error text-danger"></small>
+										<input type="text" class="form-control" name="std_prev_school" id="std_prev_school">
 									</div>
 								</div>
 								<div class="col-sm-4">
 									<div class="form-group">
 										<label class="control-label">ID Card</label>
-										<input type="file" class="form-control limit" name="std_idcard" id="std_idcard" accept="image/*, application/msword, application/pdf">
-										<small class="file-size-error text-danger"></small>
+										<input type="file" class="form-control" name="std_idcard" id="std_idcard" accept="image/*, application/msword, application/pdf">
 									</div>
 								</div>
 								<div class="col-sm-4">
 									<div class="form-group">
 										<label class="control-label">Father ID Card</label>
-										<input type="file" class="form-control limit" name="std_fatheridcard" id="std_fatheridcard" accept="image/*, application/msword, application/pdf">
-										<small class="file-size-error text-danger"></small>
+										<input type="file" class="form-control" name="std_fatheridcard" id="std_fatheridcard" accept="image/*, application/msword, application/pdf">
 									</div>
 								</div>
 							</div>
@@ -506,22 +289,19 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 								<div class="col-sm-4">
 									<div class="form-group">
 										<label class="control-label">Birth Certificate</label>
-										<input type="file" class="form-control limit" name="std_birthcertificate" id="std_birthcertificate" accept="image/*, application/msword, application/pdf">
-										<small class="file-size-error text-danger"></small>
+										<input type="file" class="form-control" name="std_birthcertificate" id="std_birthcertificate" accept="image/*, application/msword, application/pdf">
 									</div>
 								</div>
 								<div class="col-sm-4">
 									<div class="form-group">
 										<label class="control-label">School Leaving Certificate</label>
-										<input type="file" class="form-control limit" name="std_leavingcertificate" id="std_leavingcertificate" accept="image/*, application/msword, application/pdf">
-										<small class="file-size-error text-danger"></small>
+										<input type="file" class="form-control" name="std_leavingcertificate" id="std_leavingcertificate" accept="image/*, application/msword, application/pdf">
 									</div>
 								</div>
 								<div class="col-sm-4">
 									<div class="form-group">
 										<label class="control-label">Other Documents</label>
-										<input type="file" class="form-control limit" name="std_otherdocuments" id="std_otherdocuments" accept="image/*, application/msword, application/pdf">
-										<small class="file-size-error text-danger"></small>
+										<input type="file" class="form-control" name="std_otherdocuments" id="std_otherdocuments" accept="image/*, application/msword, application/pdf">
 									</div>
 								</div>
 							</div>
@@ -561,6 +341,9 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 			</section>
 		</div>
 	</div>
+	
+
+	
 	';
 } else {
 	header("Location: dashboard.php");
@@ -703,359 +486,3 @@ document.querySelectorAll('.limit').forEach(input => {
 
 	});
 </script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
-<!-- <script>
-  let cropper;
-  const imageInput = document.getElementById('imageInput');
-  const preview = document.getElementById('preview');
-  const cropBtn = document.getElementById('cropBtn');
-
-  imageInput.addEventListener('change', function (e) {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = function (event) {
-        preview.src = event.target.result;
-
-        preview.onload = function () {
-          if (cropper) {
-            cropper.destroy();
-          }
-          cropper = new Cropper(preview, {
-            aspectRatio: NaN, 
-            viewMode: 1,
-          });
-        };
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-
-  cropBtn.addEventListener('click', function () {
-    if (cropper) {
-      const canvas = cropper.getCroppedCanvas();
-		console.log('ok');
-      // Replace preview image with the cropped image
-      preview.src = canvas.toDataURL('image/jpeg');
-
-      // Hide cropping UI
-      cropper.destroy();
-      cropper = null;
-
-      // Optional: if you want to hide crop button after cropping
-    //   cropBtn.style.display = 'none';
-    }
-  });
-
-  cropper = new Cropper(preview, {
-  aspectRatio: NaN, // Free crop
-  viewMode: 1,      // 1 = restrict crop box to not exceed image
-  autoCropArea: 1,  // Crop box covers the entire image initially
-  responsive: true,
-  background: false,
-}); -->
-<!-- </script> -->
-<!-- <script>
-  const inputImage = document.getElementById('inputImage');
-  const cropContainer = document.getElementById('cropContainer');
-  const imageToCrop = document.getElementById('imageToCrop');
-  const cropButton = document.getElementById('cropButton');
-  const resultCanvas = document.getElementById('resultCanvas');
-
-  let cropper;
-
-  inputImage.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      imageToCrop.src = e.target.result;
-      cropContainer.style.display = 'block';
-
-      if (cropper) {
-        cropper.destroy();
-      }
-
-      imageToCrop.onload = function () {
-        cropper = new Cropper(imageToCrop, {
-          aspectRatio: 1, // Change aspectRatio as needed
-          viewMode: 1,
-        });
-      };
-    };
-
-    reader.readAsDataURL(file);
-  });
-
-  cropButton.addEventListener('click', () => {
-    const canvas = cropper.getCroppedCanvas();
-    resultCanvas.getContext('2d').clearRect(0, 0, resultCanvas.width, resultCanvas.height);
-
-    resultCanvas.width = canvas.width;
-    resultCanvas.height = canvas.height;
-    resultCanvas.getContext('2d').drawImage(canvas, 0, 0);
-
-    cropper.destroy();
-    cropContainer.style.display = 'none';
-
-    // Optional: show cropped result
-    resultCanvas.style.display = 'block';
-  });
-</script> -->
-
-<!-- <script>
-  const inputImage = document.getElementById('inputImage');
-  const cropContainer = document.getElementById('cropContainer');
-  const imageToCrop = document.getElementById('imageToCrop');
-  const cropButton = document.getElementById('cropButton');
-  const croppedImage = document.getElementById('croppedImage');
-
-  let cropper;
-
-  inputImage.addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      imageToCrop.src = e.target.result;
-
-      imageToCrop.onload = function () {
-        // Show crop UI
-        cropContainer.style.display = 'block';
-
-        // Destroy previous instance if exists
-        if (cropper) {
-          cropper.destroy();
-        }
-
-        cropper = new Cropper(imageToCrop, {
-          aspectRatio: 1, // or any ratio you want
-          viewMode: 1,
-        });
-      };
-    };
-    reader.readAsDataURL(file);
-  });
-
-  cropButton.addEventListener('click', function () {
-    if (!cropper) return;
-
-    // Get cropped image
-    const canvas = cropper.getCroppedCanvas({
-      width: 200,
-      height: 200,
-    });
-
-    // Convert to DataURL and show result
-    const croppedDataURL = canvas.toDataURL('image/png');
-    croppedImage.src = croppedDataURL;
-    croppedImage.style.display = 'block';
-
-    // Destroy cropper and hide UI
-    cropper.destroy();
-    cropper = null;
-    cropContainer.style.display = 'none';
-  });
-  cropper = new Cropper(imageToCrop, {
-  aspectRatio: 1,
-  viewMode: 1,
-  dragMode: 'move',
-  cropBoxResizable: false,
-  cropBoxMovable: true,
-  minCropBoxWidth: 200,
-  minCropBoxHeight: 200,
-});
-</script> -->
-
-<!-- <script>
-  const inputImage = document.getElementById('inputImage');
-  const cropContainer = document.getElementById('cropContainer');
-  const imageToCrop = document.getElementById('imageToCrop');
-  const cropButton = document.getElementById('cropButton');
-  const croppedImage = document.getElementById('croppedImage');
-
-  let cropper;
-
-  inputImage.addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      imageToCrop.src = e.target.result;
-
-      imageToCrop.onload = function () {
-        cropContainer.style.display = 'block';
-
-        if (cropper) cropper.destroy();
-
-        cropper = new Cropper(imageToCrop, {
-          aspectRatio: 1,
-          viewMode: 1,
-          autoCropArea: 1,
-          responsive: true,
-          background: false,
-          ready() {
-            cropper.zoomTo(0); // Ensure full image fits in crop box
-          }
-        });
-      };
-    };
-    reader.readAsDataURL(file);
-  });
-
-  cropButton.addEventListener('click', function () {
-    if (!cropper) return;
-
-    const canvas = cropper.getCroppedCanvas({
-      width: 300,
-      height: 300,
-    });
-
-    const croppedDataURL = canvas.toDataURL('image/png');
-    croppedImage.src = croppedDataURL;
-    croppedImage.style.display = 'block';
-
-    cropper.destroy();
-    cropper = null;
-    cropContainer.style.display = 'none';
-  });
-</script> -->
-
-
-  <!-- <script>
-    const inputImage = document.getElementById('inputImage');
-    const cropContainer = document.getElementById('cropContainer');
-    const imageToCrop = document.getElementById('imageToCrop');
-    const cropButton = document.getElementById('cropButton');
-    const croppedImage = document.getElementById('croppedImage');
-
-    let cropper;
-
-    inputImage.addEventListener('change', function (event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        imageToCrop.src = e.target.result;
-        cropContainer.style.display = 'block';
-        croppedImage.style.display = 'none'; // Hide previous result if any
-
-        imageToCrop.onload = function () {
-          if (cropper) cropper.destroy();
-
-          cropper = new Cropper(imageToCrop, {
-            aspectRatio: 0,
-            viewMode: 0,
-            autoCropArea: 1,
-            responsive: true,
-            background: false,
-            movable: false,
-            zoomable: true,
-            scalable: false,
-            cropBoxResizable: false,
-            cropBoxMovable: false,
-            ready() {
-              const imageData = cropper.getImageData();
-              const cropBoxData = cropper.getCropBoxData();
-
-              const scaleX = cropBoxData.width / imageData.naturalWidth;
-              const scaleY = cropBoxData.height / imageData.naturalHeight;
-              const requiredScale = Math.max(scaleX, scaleY);
-
-              cropper.zoomTo(requiredScale);
-            }
-          });
-        };
-      };
-      reader.readAsDataURL(file);
-    });
-
-    cropButton.addEventListener('click', function () {
-      if (!cropper) return;
-
-      const canvas = cropper.getCroppedCanvas({
-        width: 300,
-        height: 300,
-      });
-
-      const croppedDataURL = canvas.toDataURL('image/png');
-      croppedImage.src = croppedDataURL;
-      croppedImage.style.display = 'block';
-
-      cropper.destroy();
-      cropper = null;
-      cropContainer.style.display = 'none';
-    });
-  </script> -->
-<script>
-    const preview = document.getElementById('preview');
-    const modal = document.getElementById('modal');
-    const closeBtn = document.getElementById('close-btn');
-    const imageInput = document.getElementById('image-input');
-    const cropImage = document.getElementById('crop-image');
-    const cropBtn = document.getElementById('crop-btn');
-    const hiddenInput = document.getElementById('cropped-image-input');
-
-    let cropper;
-
-    // Open modal
-    preview.addEventListener('click', () => {
-      modal.style.display = 'flex';
-    });
-
-    // Close modal
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      if (cropper) cropper.destroy();
-      cropImage.src = '';
-      imageInput.value = '';
-    });
-
-    // Load image and init cropper
-    imageInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = () => {
-          cropImage.onload = () => {
-            if (cropper) cropper.destroy();
-            cropper = new Cropper(cropImage, {
-              aspectRatio: 1,
-              viewMode: 1,
-              responsive: true,
-              autoCropArea: 1
-            });
-          };
-          cropImage.src = reader.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    // Crop and apply image
-    cropBtn.addEventListener('click', () => {
-      if (cropper) {
-        const canvas = cropper.getCroppedCanvas({
-          width: 200,
-          height: 200
-        });
-
-        const base64Image = canvas.toDataURL('image/jpeg');
-
-        // Set image preview and hidden input
-        preview.src = base64Image;
-		console.log(base64Image);
-        hiddenInput.value = base64Image;
-
-        // Clean up
-        modal.style.display = 'none';
-        cropper.destroy();
-        cropImage.src = '';
-        imageInput.value = '';
-      }
-    });
-</script>

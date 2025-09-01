@@ -10,6 +10,8 @@ echo'
 </div>
 </section>
 <!-- VENDOR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 <script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.js"></script>

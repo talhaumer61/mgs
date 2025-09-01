@@ -66,7 +66,9 @@ echo'
 <script src="assets/vendor/jquery/jquery.js"></script>
 	
 <!--WEB ICON-->
-<link rel="shortcut icon" href="assets/images/favicon.png">';
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet"/>
+';
 
 if((strstr(basename($_SERVER['REQUEST_URI']), '.php', true) == 'dashboard')){
 	echo'<script src="https://code.highcharts.com/stock/highstock.js"></script>

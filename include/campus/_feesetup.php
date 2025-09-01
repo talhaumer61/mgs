@@ -100,111 +100,22 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SES
 				});  
 			}
 			
-			// function get_section(id_class) {  
-			// 	$("#loading").html('<img src="images/ajax-loader-horizintal.gif"> loading...');  
-			// 	var id_campus  = $("#id_campus").val(); 
-			// 	var id_session = $("#id_session").val(); 
-			// 	$.ajax({  
-			// 		type: "POST", 
-			// 		url: "include/ajax/get_section.php",  
-			// 		data: {
-			// 				  'id_campus'   : id_campus
-			// 				, 'id_class' 	: id_class
-			// 				, 'id_session'  : id_session 
-			// 			},
-			// 		success: function(msg){  
-			// 			$("#id_section").html(msg); 
-			// 			$("#loading").html(''); 
-			// 		}
-			// 	});  
-			// }
-
 			function get_section(id_class) {  
-    $("#loading").html('<img src="images/ajax-loader-horizintal.gif"> loading...');  
-    var id_campus  = $("#id_campus").val(); 
-    var id_session = $("#id_session").val(); 
-
-    $.ajax({  
-        type: "POST", 
-        url: "include/ajax/get_section.php",  
-        dataType: "json", // Expecting JSON
-        data: {
-            'id_campus': id_campus,
-            'id_class': id_class,
-            'id_session': id_session
-        },
-        success: function(response) {  
-            $("#loading").html('');
-
-            if (response.status === 'error') {
-                new PNotify({
-                    title   : response.title,
-                    text    : response.text,
-                    type    : 'error',
-                    hide    : true,
-                    buttons : {
-                        closer : true,
-                        sticker: false
-                    }
-                });
-				$("#id_section").html('');
-            } else if (response.status === 'success') {
-                $("#id_section").html(response.html);
-            }
-        },
-    });  
-}
-
-
-			// function get_section(id_class) {  
-			// 	$("#loading").html('<img src="images/ajax-loader-horizintal.gif"> loading...');  
-			// 	var id_campus  = $("#id_campus").val(); 
-			// 	var id_session = $("#id_session").val(); 
-			// 	$.ajax({  
-			// 		type: "POST", 
-			// 		url: "include/ajax/get_section.php",  
-			// 		data: {
-			// 				  'id_campus'   : id_campus
-			// 				, 'id_class' 	: id_class
-			// 				, 'id_session'  : id_session 
-			// 			},
-			// 		success: function(msg){  
-			// 			$("#id_section").html(msg); 
-			// 			$("#loading").html(''); 
-			// 		}
-			// 	});  
-			// }
-
-	// function get_section(id_class) {  
-	// 	$("#loading").html('<img src="images/ajax-loader-horizintal.gif"> loading...');  
-	// 	var id_campus  = $("#id_campus").val(); 
-	// 	var id_session = $("#id_session").val(); 
-    
-	// 	$.ajax({  
-	// 		type: "POST", 
-	// 		url: "include/ajax/get_section.php",  
-	// 		dataType: 'json',
-	// 		data: {
-	// 			'id_campus' : id_campus,
-	// 			'id_class'  : id_class,
-	// 			'id_session': id_session 
-	// 		},
-	// 		success: function(response){  
-	// 			$("#loading").html(''); 
-	// 			if(response.status === 'error') {
-	// 				toastr.error(response.message, 'Error');
-	// 				$("#id_section").html('');
-	// 			} else if(response.status === 'success') {
-	// 				$("#id_section").html(response.options);
-	// 				// toastr.success('Sections loaded successfully', 'Success');
-	// 			}
-	// 		},
-	// 		error: function() {
-	// 			$("#loading").html('');
-	// 			toastr.error('An error occurred while loading sections.', 'Error');
-	// 		}
-    // 	});  
-	// }
+				$("#loading").html('<img src="images/ajax-loader-horizintal.gif"> loading...');  
+				var id_campus = $("#id_campus").val(); 
+				$.ajax({  
+					type: "POST", 
+					url: "include/ajax/get_section.php",  
+					data: {
+							  'id_campus'   : id_campus
+							, 'id_class' 	: id_class
+						},
+					success: function(msg){  
+						$("#id_section").html(msg); 
+						$("#loading").html(''); 
+					}
+				});  
+			}
 		</script>
 		<?php 
 		echo '
