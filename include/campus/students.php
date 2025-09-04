@@ -31,6 +31,76 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 		</div>		
 	</section>';
 	?>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		let nicValid = true;
+		let rollValid = true;
+		function checkStudent() {
+			let nic = $("#std_cnic").length ? $("#std_cnic").val().trim() : "";
+let roll = $("#std_rollno").length ? $("#std_rollno").val().trim() : "";
+
+			// if both are empty → clear errors
+			if (nic === "" && roll === "") {
+				$("#cnic_status").text("");
+				$("#roll_status").text("");
+				nicValid = rollValid = true;
+				return;
+			}
+			$.ajax({
+				url: "include/ajax/check_student.php",
+				type: "POST",
+				dataType: "json",
+				data: {
+					id_campus: "<?php echo $_SESSION['userlogininfo']['LOGINCAMPUS']; ?>",
+					std_nic: $("#std_cnic").val(),
+					std_rollno: $("#std_rollno").val()
+				},
+				success: function(res) {
+					// NIC check
+					if (nic !== "") {
+						if (res.nic === "exists") {
+							$("#cnic_status").text("⚠ CNIC already exists!").css("color", "red");
+							nicValid = false;
+						} else {
+							$("#cnic_status").text("✔ Available").css("color", "green");
+							nicValid = true;
+						}
+					} else {
+						// field empty → clear error/status
+						$("#cnic_status").text("");
+						nicValid = true;
+					}
+
+					// Roll check
+					if (roll !== "") {
+						if (res.roll === "exists") {
+							$("#roll_status").text("⚠ Roll No already exists!").css("color", "red");
+							rollValid = false;
+						} else {
+							$("#roll_status").text("✔ Available").css("color", "green");
+							rollValid = true;
+						}
+					} else {
+						// field empty → clear error/status
+						$("#roll_status").text("");
+						rollValid = true;
+					}
+				}
+
+			});
+		}
+
+		// Trigger check when user leaves input field
+		$("#std_cnic, #std_rollno").on("keyup blur", checkStudent);
+
+		// Prevent form submission if invalid
+		$("#studentForm").on("submit", function(e) {
+			if (!nicValid || !rollValid) {
+				e.preventDefault();
+				// alert("Fix the errors before submitting!");
+			}
+		});
+	</script>
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			<?php 

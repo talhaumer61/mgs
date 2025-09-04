@@ -155,7 +155,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 	<div class="row">
 		<div class="col-md-12">
 			<section class="panel panel-featured panel-featured-primary">
-				<form action="students.php" class="mb-lg validate" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+				<form id="studentForm" action="students.php" class="mb-lg validate" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 					<div class="panel-heading">
 						<h4 class="panel-title"><i class="fa fa-plus-square"></i> Add Student</h4>
 					</div>
@@ -345,7 +345,8 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 								<div class="col-sm-3">
 									<div class="form-group">
 										<label class="control-label">NIC / B-Form <span class="required">*</span></label>
-										<input type="text" class="form-control cnic" name="std_nic" id="std_cnic" placeholder="xxxxx-xxxxxxx-x"" id="std_nic" required="">
+										<input type="text" class="form-control cnic" name="std_nic" id="std_cnic" placeholder="xxxxx-xxxxxxx-x"" required="">
+										<span id="cnic_status"></span>
 									</div>
 								</div>
 								<div class="col-sm-3">
@@ -464,6 +465,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 									<div class="form-group">
 										<label class="control-label">Roll No.</label>
 										<input type="text" class="form-control" name="std_rollno" id="std_rollno">
+										<span id="roll_status"></span>
 									</div>
 								</div>
 								<div class="col-sm-4">
