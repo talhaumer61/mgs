@@ -7,12 +7,21 @@ if(isset($_POST['submit_student'])) {
 										FROM ".STUDENTS." 
 										WHERE id_campus = '".cleanvars($id_campus)."' 
 										AND is_deleted = '0'
-										AND (
-												std_nic = '".cleanvars($_POST['std_nic'])."'
-												OR std_rollno = '".cleanvars($_POST['std_rollno'])."'
-										)
+										AND std_nic = '".cleanvars($_POST['std_nic'])."'
 										LIMIT 1
 									");
+
+	// $sqllmscheck  = $dblms->querylms("
+	// 									SELECT std_id
+	// 									FROM ".STUDENTS." 
+	// 									WHERE id_campus = '".cleanvars($id_campus)."' 
+	// 									AND is_deleted = '0'
+	// 									AND (
+	// 											std_nic = '".cleanvars($_POST['std_nic'])."'
+	// 											OR std_rollno = '".cleanvars($_POST['std_rollno'])."'
+	// 									)
+	// 									LIMIT 1
+	// 								");
 										
 	if(mysqli_num_rows($sqllmscheck)) {
 		sessionMsg("Error", "Record Already Exists.", "error");
@@ -526,12 +535,22 @@ if(isset($_POST['changes_student'])) {
 										WHERE is_deleted = '0'
 										AND id_campus = '".cleanvars($id_campus)."'
 										AND std_id != '".cleanvars($_POST['std_id'])."'
-										AND (
-											std_nic = '".cleanvars($_POST['std_nic'])."'
-											OR std_rollno = '".cleanvars($_POST['std_rollno'])."'
-										)
+										AND std_nic = '".cleanvars($_POST['std_nic'])."'
 										LIMIT 1
 									");
+
+	// $sqllmscheck  = $dblms->querylms("
+	// 									SELECT std_id
+	// 									FROM ".STUDENTS."
+	// 									WHERE is_deleted = '0'
+	// 									AND id_campus = '".cleanvars($id_campus)."'
+	// 									AND std_id != '".cleanvars($_POST['std_id'])."'
+	// 									AND (
+	// 										std_nic = '".cleanvars($_POST['std_nic'])."'
+	// 										OR std_rollno = '".cleanvars($_POST['std_rollno'])."'
+	// 									)
+	// 									LIMIT 1
+	// 								");
 	if(mysqli_num_rows($sqllmscheck)) {
 		$_SESSION['msg']['title'] 	= 'Error';
 		$_SESSION['msg']['text'] 	= 'Record Already Exists';
