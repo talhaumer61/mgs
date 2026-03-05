@@ -177,7 +177,7 @@ if(isset($_POST['promote_details'])){
                                                                     WHERE session_id != '' AND session_status = '1'
                                                                     ORDER BY session_id ASC");
                                 while($valueSession 	= mysqli_fetch_array($sqllmsSession)) {
-                                    echo'<option value="'.$valueSession['session_id'].'" '.($session==$valueSession['session_id'] ? 'selected' : '').'>'.$valueSession['session_name'].'</option>';
+                                    echo'<option value="'.$valueSession['session_id'].'">'.$valueSession['session_name'].'</option>';
                                 }
                                 echo'
                             </select>
@@ -198,7 +198,7 @@ if(isset($_POST['promote_details'])){
                                                                     AND class_id IN (".$valLevelClasses['level_classes'].")
                                                                     ORDER BY class_id ASC");
                                 while($value_class 	= mysqli_fetch_array($sqllmsclass)) {
-                                    echo'<option value="'.$value_class['class_id'].'" '.($value_class['class_id'] == $class ? 'selected' : '').'>'.$value_class['class_name'].'</option>';
+                                    echo'<option value="'.$value_class['class_id'].'">'.$value_class['class_name'].'</option>';
                                 }
                                 echo'
                             </select>
@@ -215,7 +215,7 @@ if(isset($_POST['promote_details'])){
                                                                         AND id_campus = '".$campus."' 
                                                                         ORDER BY section_id ASC");
                                     while($valSection = mysqli_fetch_array($sqlSection)) {
-                                        echo'<option value="'.$valSection['section_id'].'" '.($valSection['section_id'] == $section ? 'selected' : '').'>'.$valSection['section_name'].'</option>';
+                                        echo'<option value="'.$valSection['section_id'].'">'.$valSection['section_name'].'</option>';
                                     }
                                     echo'
                                 </select>
