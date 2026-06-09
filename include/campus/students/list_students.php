@@ -227,6 +227,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 						<th width="40">Roll no</th>
 						<th>Class</th>
 						<th>Section</th>
+						<th>Session</th>
 						<th>Phone</th>
 						<th>CNIC</th>
 						<th>Gender</th>
@@ -238,14 +239,15 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 					</tr>
 				</thead>
 				<tbody>';
-					$sqllms	= $dblms->querylms("SELECT DISTINCT s.*, c.class_name, sc.section_name, hr.fee, fsd.amount, s.id_session
+					$sqllms	= $dblms->querylms("SELECT DISTINCT s.*, c.class_name, sc.section_name, hr.fee, fsd.amount, ses.session_name
 												FROM ".STUDENTS." s
 												INNER JOIN ".CLASSES."  c  ON c.class_id = s.id_class
 												LEFT JOIN ".CLASS_SECTIONS." sc ON sc.section_id = s.id_section
 												LEFT JOIN ".FEESETUP." fs ON fs.id_class = s.id_class AND fs.id_section = s.id_section AND fs.id_session = s.id_session AND fs.id_campus = s.id_campus
 												LEFT JOIN ".FEESETUPDETAIL." fsd ON fsd.id_setup = fs.id AND fsd.id_cat = '2'
 												LEFT JOIN ".HOSTELS_REGISTRATION." hr ON hr.id_user = s.std_id AND hr.is_deleted = '0'
-												WHERE s.is_deleted = '0'
+												INNER JOIN ".SESSIONS." ses ON ses.session_id = s.id_session
+												WHERE s.is_deleted = '0' AND s.id_session = '".cleanvars($_SESSION['userlogininfo']['ACADEMICSESSION'])."'
 												AND s.id_campus = '".$id_campus."' $sql3 $sql4 $sql5 $sql6 $sql2 ");
 					$srno = 0;
 					while($rowsvalues = mysqli_fetch_array($sqllms)) {
@@ -293,6 +295,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 							<td>'.$rowsvalues['std_rollno'].'</td>
 							<td>'.$rowsvalues['class_name'].'</td>
 							<td>'.$rowsvalues['section_name'].'</td>
+							<td>'.$rowsvalues['session_name'].'</td>
 							<td>'.$rowsvalues['std_phone'].'</td>
 							<td>'.$rowsvalues['std_nic'].'</td>
 							<td>'.$rowsvalues['std_gender'].'</td>
