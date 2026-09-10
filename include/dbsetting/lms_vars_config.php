@@ -13,9 +13,9 @@ define('LMS_USERPASS'			, '');
 
 
 // define('LMS_HOSTNAME'			, 'localhost');
-// define('LMS_NAME'				, 'neotericschools_mgs2021');
-// define('LMS_USERNAME'			, 'neotericschools_mgs');
-// define('LMS_USERPASS'			, 'uw#7P({9hx7z');
+// define('LMS_NAME'				, 'swohgequ_mgs2025');
+// define('LMS_USERNAME'			, 'swohgequ_mgs25');
+// define('LMS_USERPASS'			, 'UNpuv2YrSf-T');
 
 // DB TABLES
 define('A_CALENAR'					, 'sms_academiccalendar');

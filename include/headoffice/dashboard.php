@@ -8,6 +8,7 @@ echo '
     <div class="row">';
 		//include "dashboard/financegraph.php";
 		include "dashboard/main_counter.php";
+		include "dashboard/campus_activity.php";
     	echo'
 	</div>';
 	include "dashboard/campusWiseStudents.php";

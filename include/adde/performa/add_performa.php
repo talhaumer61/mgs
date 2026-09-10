@@ -1,4 +1,6 @@
 <?php
+$value_emp = $dblms->querylms("SELECT * FROM ".EMPLOYEES." WHERE id_loginid = '".$_SESSION['userlogininfo']['LOGINIDA']."' AND emply_status = '1' AND is_deleted != '1' ");
+$value_emp = mysqli_fetch_array($value_emp);
 // Current Month
 $month = date("n");
 echo'

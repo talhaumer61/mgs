@@ -1079,4 +1079,50 @@ function get_dataHashingOnlyExp($str = '', $flag = true) {
         return false;
     }
 }
+
+function get_activity_statement($userName, $action, $filename, $campusName = '') {
+
+    $actionName = get_logfile($action);
+
+    // Convert filename to readable text
+    $filename = trim($filename);
+    $filename = str_replace('_', ' ', $filename);
+    $filename = str_replace('-', ' ', $filename);
+    $filename = ucwords($filename);
+
+    // Make user name bold
+    $userName = '<strong>' . $userName . '</strong>';
+
+    // Make campus name bold
+    $campusName = '<strong>' . $campusName . '</strong>';
+
+    switch($action) {
+
+        case '1':
+            $statement = $userName . ' added ' . $filename;
+            break;
+
+        case '2':
+            $statement = $userName . ' updated ' . $filename;
+            break;
+
+        case '3':
+            $statement = $userName . ' deleted ' . $filename;
+            break;
+
+        case '4':
+            $statement = $userName . ' logged in to the system';
+            break;
+
+        default:
+            $statement = $userName . ' performed ' . $actionName . ' on ' . $filename;
+            break;
+    }
+
+    if($action != '4' && !empty($campusName)) {
+        $statement .= ' at ' . $campusName;
+    }
+
+    return $statement;
+}
 ?>
