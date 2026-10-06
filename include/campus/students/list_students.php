@@ -247,7 +247,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('1', $_SESSION['u
 												LEFT JOIN ".FEESETUPDETAIL." fsd ON fsd.id_setup = fs.id AND fsd.id_cat = '2'
 												LEFT JOIN ".HOSTELS_REGISTRATION." hr ON hr.id_user = s.std_id AND hr.is_deleted = '0'
 												INNER JOIN ".SESSIONS." ses ON ses.session_id = s.id_session
-												WHERE s.is_deleted = '0' AND s.id_session = '".cleanvars($_SESSION['userlogininfo']['ACADEMICSESSION'])."'
+												WHERE s.is_deleted = '0'
 												AND s.id_campus = '".$id_campus."' $sql3 $sql4 $sql5 $sql6 $sql2 ");
 					$srno = 0;
 					while($rowsvalues = mysqli_fetch_array($sqllms)) {

@@ -154,16 +154,26 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('71', $_SESSION['
 			$DueDate = date(''.$DueMonth.'/15/'.$DueYear.'');
 		}
 		
-		// GET SECTIONS
-		$sqlSections = $dblms->querylms("SELECT fs.id_section, cs.section_name
-											FROM ".FEESETUP." fs
-											INNER JOIN ".CLASS_SECTIONS." cs ON cs.section_id  = fs.id_section
-											WHERE fs.is_deleted	= '0'
-											AND fs.status		= '1'
-											AND fs.id_class		= '".cleanvars($id_class)."'
-											$section_filter
-											AND fs.id_campus	= '".cleanvars($id_campus)."'
-											AND fs.id_session	= '".cleanvars($_SESSION['userlogininfo']['ACADEMICSESSION'])."'");					
+		// GET SECTIONS				
+		$sqlSections = $dblms->querylms("SELECT DISTINCT fs.id_section, fs.id_session, cs.section_name
+												FROM ".FEESETUP." fs
+												INNER JOIN ".STUDENTS." s ON  s.id_session = fs.id_session
+												INNER JOIN ".CLASS_SECTIONS." cs ON cs.section_id = fs.id_section
+												WHERE fs.is_deleted = '0'
+												AND fs.status = '1'
+												AND fs.id_class = '".cleanvars($id_class)."'
+												AND fs.id_section = '".cleanvars($id_section)."'
+												$section_filter
+												AND fs.id_campus = '".cleanvars($id_campus)."'");
+		// $sqlSections = $dblms->querylms("SELECT fs.id_section, cs.section_name
+		// 									FROM ".FEESETUP." fs
+		// 									INNER JOIN ".CLASS_SECTIONS." cs ON cs.section_id  = fs.id_section
+		// 									WHERE fs.is_deleted	= '0'
+		// 									AND fs.status		= '1'
+		// 									AND fs.id_class		= '".cleanvars($id_class)."'
+		// 									$section_filter
+		// 									AND fs.id_campus	= '".cleanvars($id_campus)."'
+		// 									AND fs.id_session	= '".cleanvars($_SESSION['userlogininfo']['ACADEMICSESSION'])."'");	
 		if(mysqli_num_rows($sqlSections)>0){
 			echo'
 			<section class="panel panel-featured panel-featured-primary">
@@ -176,9 +186,10 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('71', $_SESSION['
 						<input type="hidden" name="id_campus" id="id_campus" value="'.$id_campus.'">
 						<input type="hidden" name="id_month" id="id_month" value="'.$id_month.'">
 						<input type="hidden" name="id_class" id="id_class" value="'.$id_class.'">
-						<input type="hidden" name="is_hostel" id="is_hostel" value="'.$is_hostel.'">';
+						<input type="hidden" name="is_hostel" id="is_hostel" value="'.$is_hostel.'">
+						';
 						$iForJs = 0;
-						while($valSec = mysqli_fetch_array($sqlSections)){	
+						while($valSec = mysqli_fetch_array($sqlSections)){
 							// GET FEE SETUP AND AMOUNTS
 							$sqlFees = $dblms->querylms("SELECT fs.id, d.id, d.id_setup, d.id_cat, d.amount, d.duration, c.cat_id, c.cat_name
 															FROM ".FEESETUP." fs
@@ -189,9 +200,21 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == '1' && in_array('71', $_SESSION['
 															AND fs.id_class		= '".cleanvars($id_class)."'
 															AND fs.id_section	= '".$valSec['id_section']."'
 															AND fs.id_campus	= '".cleanvars($id_campus)."'
-															$sql
-															AND fs.id_session	= '".cleanvars($_SESSION['userlogininfo']['ACADEMICSESSION'])."'
-															ORDER BY c.cat_id ASC");	
+															AND fs.id_session	= '".$valSec['id_session']."'
+															".$sql."
+															ORDER BY c.cat_id ASC");
+							// $sqlFees = $dblms->querylms("SELECT fs.id, d.id, d.id_setup, d.id_cat, d.amount, d.duration, c.cat_id, c.cat_name
+							// 								FROM ".FEESETUP." fs
+							// 								INNER JOIN ".FEESETUPDETAIL." d ON d.id_setup = fs.id
+							// 								INNER JOIN ".FEE_CATEGORY." c ON c.cat_id = d.id_cat
+							// 								WHERE fs.is_deleted	= '0'
+							// 								AND fs.status		= '1'
+							// 								AND fs.id_class		= '".cleanvars($id_class)."'
+							// 								AND fs.id_section	= '".$valSec['id_section']."'
+							// 								AND fs.id_campus	= '".cleanvars($id_campus)."'
+							// 								$sql
+							// 								AND fs.id_session	= '".cleanvars($_SESSION['userlogininfo']['ACADEMICSESSION'])."'
+							// 								ORDER BY c.cat_id ASC");	
 							echo '
 							<section class="panel panel-featured panel-featured-primary">
 								<header class="panel-heading">
